@@ -1,0 +1,12 @@
+D:\back up _val\roleconverter\roleconverter\bin\Debug\roleconverter.exe
+D:\back up _val\roleconverter\roleconverter\bin\Debug\roleconverter.pdb
+D:\back up _val\roleconverter\roleconverter\bin\Debug\roleconverter.xml
+D:\back up _val\roleconverter\roleconverter\obj\x86\Debug\roleconverter.Form1.resources
+D:\back up _val\roleconverter\roleconverter\obj\x86\Debug\roleconverter.Resources.resources
+D:\back up _val\roleconverter\roleconverter\obj\x86\Debug\roleconverter.vbproj.GenerateResource.Cache
+D:\back up _val\roleconverter\roleconverter\obj\x86\Debug\roleconverter.exe
+D:\back up _val\roleconverter\roleconverter\obj\x86\Debug\roleconverter.xml
+D:\back up _val\roleconverter\roleconverter\obj\x86\Debug\roleconverter.pdb
+D:\back up _val\roleconverter\roleconverter\obj\x86\Debug\roleconverter.frmpaperrole.resources
+D:\back up _val\roleconverter\roleconverter\obj\x86\Debug\roleconverter.frmpapercut.resources
+D:\back up _val\roleconverter\roleconverter\obj\x86\Debug\roleconverter.frmpaperroll.resources
