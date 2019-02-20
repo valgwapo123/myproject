@@ -40,6 +40,7 @@ Partial Class frmpaperrole
         Me.Button2 = New System.Windows.Forms.Button()
         Me.btnsearch = New System.Windows.Forms.Button()
         Me.txtsearch = New System.Windows.Forms.TextBox()
+        Me.txtpaperid = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'txtpapername
@@ -73,14 +74,14 @@ Partial Class frmpaperrole
         Me.txtpdescription.Location = New System.Drawing.Point(148, 124)
         Me.txtpdescription.Name = "txtpdescription"
         Me.txtpdescription.Size = New System.Drawing.Size(167, 20)
-        Me.txtpdescription.TabIndex = 2
+        Me.txtpdescription.TabIndex = 1
         '
         'btnsave
         '
         Me.btnsave.Location = New System.Drawing.Point(344, 241)
         Me.btnsave.Name = "btnsave"
         Me.btnsave.Size = New System.Drawing.Size(75, 23)
-        Me.btnsave.TabIndex = 4
+        Me.btnsave.TabIndex = 3
         Me.btnsave.Text = "Add"
         Me.btnsave.UseVisualStyleBackColor = True
         '
@@ -88,7 +89,7 @@ Partial Class frmpaperrole
         '
         Me.lvList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader4, Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader5})
         Me.lvList.FullRowSelect = True
-        Me.lvList.Location = New System.Drawing.Point(68, 281)
+        Me.lvList.Location = New System.Drawing.Point(80, 270)
         Me.lvList.Name = "lvList"
         Me.lvList.Size = New System.Drawing.Size(579, 204)
         Me.lvList.TabIndex = 5
@@ -142,7 +143,7 @@ Partial Class frmpaperrole
         Me.txtremaks.Location = New System.Drawing.Point(149, 168)
         Me.txtremaks.Name = "txtremaks"
         Me.txtremaks.Size = New System.Drawing.Size(167, 96)
-        Me.txtremaks.TabIndex = 10
+        Me.txtremaks.TabIndex = 2
         Me.txtremaks.Text = ""
         '
         'Button1
@@ -150,7 +151,7 @@ Partial Class frmpaperrole
         Me.Button1.Location = New System.Drawing.Point(183, 491)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 11
+        Me.Button1.TabIndex = 4
         Me.Button1.Text = "Save"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -180,11 +181,20 @@ Partial Class frmpaperrole
         Me.txtsearch.Size = New System.Drawing.Size(319, 20)
         Me.txtsearch.TabIndex = 14
         '
+        'txtpaperid
+        '
+        Me.txtpaperid.AutoSize = True
+        Me.txtpaperid.Location = New System.Drawing.Point(74, 471)
+        Me.txtpaperid.Name = "txtpaperid"
+        Me.txtpaperid.Size = New System.Drawing.Size(0, 13)
+        Me.txtpaperid.TabIndex = 15
+        '
         'frmpaperrole
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1041, 739)
+        Me.Controls.Add(Me.txtpaperid)
         Me.Controls.Add(Me.txtsearch)
         Me.Controls.Add(Me.btnsearch)
         Me.Controls.Add(Me.Button2)
@@ -224,4 +234,5 @@ Partial Class frmpaperrole
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents btnsearch As System.Windows.Forms.Button
     Friend WithEvents txtsearch As System.Windows.Forms.TextBox
+    Friend WithEvents txtpaperid As System.Windows.Forms.Label
 End Class

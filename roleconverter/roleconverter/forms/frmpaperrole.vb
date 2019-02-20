@@ -4,13 +4,27 @@
     Dim paperid As String
 
     Private Sub btnadd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnsave.Click
-        'additemlistview()
-        Dim lv As ListViewItem = lvList.Items.Add(0)
-        lv.SubItems.Add(txtpapername.Text)
-        lv.SubItems.Add(txtpdescription.Text)
-        lv.SubItems.Add(txtremaks.Text)
-        lv.SubItems.Add("processing")
-        txtpapername.Clear() : txtpdescription.Clear() : txtremaks.Clear()
+        If btnsave.Text = "Add" Then
+            'additemlistview()
+            Dim lv As ListViewItem = lvList.Items.Add(0)
+            lv.SubItems.Add(txtpapername.Text)
+            lv.SubItems.Add(txtpdescription.Text)
+            lv.SubItems.Add(txtremaks.Text)
+            lv.SubItems.Add("processing")
+            txtpapername.Clear() : txtpdescription.Clear() : txtremaks.Clear()
+            Exit Sub
+        End If
+        If btnsave.Text = "Update" Then
+            'additemlistview()
+            lvList.Items.Clear()
+            Dim lv As ListViewItem = lvList.Items.Add(txtpaperid.Text)
+            lv.SubItems.Add(txtpapername.Text)
+            lv.SubItems.Add(txtpdescription.Text)
+            lv.SubItems.Add(txtremaks.Text)
+            lv.SubItems.Add("processing")
+            txtpapername.Clear() : txtpdescription.Clear() : txtremaks.Clear()
+            Exit Sub
+        End If
     End Sub
 
     Private Sub loadcategory(Optional ByVal str As String = "select * from TBL_PAPERROLL order by PAPERROLE_ID asc")
@@ -37,28 +51,23 @@
             lv.Tag = .PAPERNAME
         End With
     End Sub
-
-    Private Sub save()
-
-
-        Dim msg As DialogResult = MsgBox("Do you want to save?", MsgBoxStyle.YesNo, "Save")
+    Private Sub savelist()
+        Dim msg As DialogResult = MsgBox("Do you want to save this?", MsgBoxStyle.YesNo, "Question")
         If msg = vbNo Then Exit Sub
 
-        SelectedCat = New paperroll
-        With SelectedCat
+        For Each lv As ListViewItem In lvList.Items
+            Dim bnj As New paperroll
+            With bnj
+                .PAPERNAME = lv.SubItems(1).Text
+                .DESCRIPTION = lv.SubItems(2).Text
+                .REMARKS = lv.SubItems(3).Text
+                .STATUS = "1"
+                .savepaperole()
+            End With
+        Next
 
-            .PAPERNAME = txtpapername.Text
-            .DESCRIPTION = txtpdescription.Text
-            .REMARKS = txtremaks.Text
-            .STATUS = "1"
-        End With
+        MsgBox("Successfully saved.")
 
-
-
-        SelectedCat.SaveCat()
-
-        MsgBox("Successfully saved.", MsgBoxStyle.Information)
-        lvList.Items.Clear()
     End Sub
 
 
@@ -142,20 +151,75 @@
         SelectedCat.SaveCat()
     End Sub
 
+    Private Sub save()
+        Dim msg As DialogResult = MsgBox("Do you want to save this?", MsgBoxStyle.YesNo, "Question")
+        If msg = vbNo Then Exit Sub
+
+        For Each lv As ListViewItem In lvList.Items
+            Dim bnj As New paperroll
+            With bnj
+                .PAPERNAME = lv.SubItems(1).Text
+                .DESCRIPTION = lv.SubItems(2).Text
+                .REMARKS = lv.SubItems(3).Text
+
+                .savepaperole()
+            End With
+        Next
+
+
+    End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        If btnsave.Text = "&Update" Then
 
+        If btnsave.Text = "Update" Then
 
+            updatelist()
+
+            btnsave.Text = "&Add" : txtpapername.Clear() : txtpdescription.Clear() : txtremaks.Clear()
+            lvList.Items.Clear()
             Exit Sub
-
         End If
-        savelistview()
-        btnsave.Text = "&Add" : txtpapername.Clear() : txtpdescription.Clear() : txtremaks.Clear()
+        If btnsave.Text = "Add" Then
+            Dim msg As DialogResult = MsgBox("Do you want to save this?", MsgBoxStyle.YesNo, "Question")
+            If msg = vbNo Then Exit Sub
+
+            savelist()
+            lvList.Items.Clear()
+            Exit Sub
+        End If
+
+      
+
+
     End Sub
-   
+    Private Sub updatelist()
+
+
+
+
+
+        For Each item As ListViewItem In lvList.Items
+            SelectedCat = New paperroll
+            With SelectedCat
+                .PAPER_ID = (item.SubItems(0).Text)
+                .PAPERNAME = item.SubItems(1).Text
+                .DESCRIPTION = item.SubItems(2).Text
+                .REMARKS = item.SubItems(3).Text
+
+                .Updatepaperoll()
+            End With
+
+        Next
+
+    End Sub
     Private Sub btnsearch_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnsearch.Click
         frmpaperroll.Show()
+
+        Me.Enabled = False
+        frmpaperroll.Focus()
+    End Sub
+
+    Private Sub BackgroundWorker1_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs)
 
     End Sub
 End Class

@@ -49,36 +49,82 @@
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        
 
-            Dim Z As Integer = 0, nRow As Integer = 0
+        listviewclick()
 
-            With lvList
-                If .SelectedItems.Count > 0 Then
-                    nRow = CInt(.SelectedIndices(0))
+    End Sub
+    Private Sub listviewclick()
+        frmpaperrole.lvList.Items.Clear()
 
-                    Z = 0
+        Dim Z As Integer = 0, nRow As Integer = 0
 
-                SelectedCat = New paperroll
-                Dim a As String = .Items(nRow).SubItems(Z).Text.Trim : Z += 1
-                With SelectedCat
-                    .PAPER_ID = a
-                End With
+        With lvList
+            If .SelectedItems.Count > 0 Then
+                nRow = CInt(.SelectedIndices(0))
+
+                Z = 0
+
+
+                frmpaperrole.txtpaperid.Text = .Items(nRow).SubItems(Z).Text.Trim : Z += 1
 
 
                 frmpaperrole.txtpapername.Text = .Items(nRow).SubItems(Z).Text.Trim : Z += 1
+
                 frmpaperrole.txtpdescription.Text = .Items(nRow).SubItems(Z).Text.Trim : Z += 1
                 frmpaperrole.txtremaks.Text = .Items(nRow).SubItems(Z).Text.Trim : Z += 1
                 frmpaperrole.btnsave.Text = "Update"
 
 
             End If
-            End With
+        End With
 
+        frmpaperrole.Enabled = True
         Me.Close()
+        frmpaperrole.Focus()
+
+
+        Dim lv As ListViewItem = frmpaperrole.lvList.Items.Add(frmpaperrole.txtpaperid.Text)
+        lv.SubItems.Add(frmpaperrole.txtpapername.Text)
+        lv.SubItems.Add(frmpaperrole.txtpdescription.Text)
+        lv.SubItems.Add(frmpaperrole.txtremaks.Text)
+        lv.SubItems.Add("processing")
+
+
+
+
+        frmpaperrole.txtpaperid.Visible = False
+
+
     End Sub
 
     Private Sub lvList_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lvList.SelectedIndexChanged
+        listviewclick()
+    End Sub
+    Private Sub selectbarcode()
+        If lvList.SelectedItems.Count = 0 Then Exit Sub
+        lvList.Items.Clear()
+        Dim i As Integer = lvList.FocusedItem.Tag
+        Dim bn As New paperroll
+        bn.Load_categoryxxx(i)
+        With bn
+            Dim lv As ListViewItem = frmpaperrole.lvList.Items.Add(.PAPER_ID)
+            lv.SubItems.Add(.PAPERNAME)
+            lv.SubItems.Add(.DESCRIPTION)
+            lv.SubItems.Add(.REMARKS)
+            lv.SubItems.Add(.REMARKS)
+            lv.SubItems.Add(.STATUS)
+            lv.Tag = .PAPER_ID
+        End With
+
+
+
+    End Sub
+
+    Private Sub BackgroundWorker2_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs)
+
+    End Sub
+
+    Private Sub BackgroundWorker1_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs)
 
     End Sub
 End Class

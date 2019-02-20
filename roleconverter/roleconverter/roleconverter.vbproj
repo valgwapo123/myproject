@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\paperroll.vb" />
+    <Compile Include="classes\paperunit.vb" />
     <Compile Include="forms\frmpapercut.Designer.vb">
       <DependentUpon>frmpapercut.vb</DependentUpon>
     </Compile>
@@ -83,6 +84,12 @@
       <DependentUpon>frmpaperroll.vb</DependentUpon>
     </Compile>
     <Compile Include="forms\frmpaperroll.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmunit.Designer.vb">
+      <DependentUpon>frmunit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmunit.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module\connection.vb" />
@@ -127,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmpaperroll.resx">
       <DependentUpon>frmpaperroll.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmunit.resx">
+      <DependentUpon>frmunit.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

@@ -53,7 +53,7 @@
     End Property
 #End Region
 
-
+#Region "FUnction"
 
     Public Sub SaveCat()
         Dim mySql As String = String.Format("SELECT * FROM {0}", MainTable)
@@ -83,23 +83,27 @@
 
         End With
     End Sub
-    Public Sub Update()
-        Dim mySql As String = String.Format("SELECT * FROM {0} WHERE PAPERROLL = {0}", MainTable, _PAPER_ID)
-        Dim ds As DataSet = LoadSQL(mySql, MainTable)
+    Public Sub Updatepaperoll()
 
-        If ds.Tables(MainTable).Rows.Count <= 0 Then
-            MsgBox("Unable to update record", MsgBoxStyle.Critical)
-            Exit Sub
+        mysql = "select * from " & tbl & " where PAPERROLE_ID =" & PAPER_ID
+        Dim ds As DataSet = LoadSQL(mysql, tbl)
+
+        If ds.Tables(0).Rows.Count > 0 Then
+            With ds.Tables(0).Rows(0)
+                .Item("PAPERNAME") = _PAPERNAME
+                .Item("DESCRIPTION") = _DESCRIPTION
+                .Item("REMARKS") = REMARKS
+
+            End With
+            connection.SaveEntry(ds, False)
+
+            MessageBox.Show("updated Successfully ")
+
+        Else
+           
         End If
 
-        With ds.Tables(MainTable).Rows(0)
-            .Item("PAPERNAME") = _PAPERNAME
-            .Item("DESCRIPTION") = _DESCRIPTION
-            .Item("REMARKS") = _REMARKS
-
-        End With
-
-        connection.SaveEntry(ds, False)
+   
 
     End Sub
     Public Sub Load_categoryxxx(ByVal PAPERROLEID As Integer)
@@ -134,5 +138,25 @@
 
         Next
     End Sub
+    Public Sub savepaperole()
+
+        mysql = "select * from " & tbl
+        Dim ds As DataSet = LoadSQL(mysql, tbl)
+
+        Dim dsnewrow As DataRow
+        dsnewrow = ds.Tables(0).NewRow
+        With dsnewrow
+            .Item("PAPERNAME") = _PAPERNAME
+            .Item("DESCRIPTION") = _DESCRIPTION
+            .Item("REMARKS") = _REMARKS
+            .Item("STATUS") = _STATUS
+        End With
+        ds.Tables(0).Rows.Add(dsnewrow)
+        connection.SaveEntry(ds)
+    End Sub
+
+#End Region
+
+   
 
 End Class
