@@ -51,6 +51,15 @@
             _STATUS = value
         End Set
     End Property
+    Private _unit_id As String
+    Public Property unit_id() As String
+        Get
+            Return _unit_id
+        End Get
+        Set(ByVal value As String)
+            _STATUS = value
+        End Set
+    End Property
 #End Region
 
 #Region "FUnction"

@@ -86,10 +86,10 @@
     <Compile Include="forms\frmpaperroll.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmunit.Designer.vb">
+    <Compile Include="forms\frmunit.Designer.vb">
       <DependentUpon>frmunit.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmunit.vb">
+    <Compile Include="forms\frmunit.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module\connection.vb" />
@@ -135,7 +135,7 @@
     <EmbeddedResource Include="forms\frmpaperroll.resx">
       <DependentUpon>frmpaperroll.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmunit.resx">
+    <EmbeddedResource Include="forms\frmunit.resx">
       <DependentUpon>frmunit.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">

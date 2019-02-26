@@ -20,7 +20,7 @@
 
     'End Sub
     Private Sub LoadClass()
-        Dim mySql As String = "select * from TBL_PAPERROLL order by PAPERROLE_ID "
+        Dim mySql As String = "select * from TBL_PAPERROLL  WHERE STATUS='1' order by PAPERROLE_ID "
         Dim ds As DataSet = LoadSQL(mySql)
 
         lvList.Items.Clear()
