@@ -2,6 +2,8 @@
     Private MainTable As String = "TBL_UNIT"
     Dim mysql As String = String.Empty
     Dim tbl As String = "TBL_UNIT"
+
+    Private isLoaded As Boolean = False
 #Region "Properties"
     Private _Unit_ID As String
     Public Property Unit_ID() As String
@@ -56,6 +58,35 @@
 
 
 #Region "FUnction"
+
+
+
+
+
+    Public Sub Load_Class_row(ByVal dr As DataRow)
+        With dr
+            _Unit_ID = .Item("UNIT_ID")
+            _UNIT_NAME = .Item("UNIT_NAME")
+            _unit_width = .Item("UNIT_WIDTH")
+            _unit_height = .Item("UNIT_HEIGHT")
+        End With
+    End Sub
+
+    Public Sub LoadCat(ByVal id As Integer)
+        If isLoaded Then Exit Sub
+
+        Dim mySql As String = String.Format("SELECT * FROM {0} WHERE TBL_UNIT = '{1}'", MainTable, id)
+        Dim ds As DataSet = LoadSQL(mySql, MainTable)
+
+        If ds.Tables(MainTable).Rows.Count <= 0 Then
+            MsgBox("Unable to load category", MsgBoxStyle.Critical)
+            Exit Sub
+        End If
+
+  
+
+        isLoaded = True
+    End Sub
 
     Public Sub Saveunit()
         Dim mySql As String = String.Format("SELECT * FROM {0}", MainTable)

@@ -24,10 +24,6 @@ Partial Class frmpapercut
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtpapercut = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.txtsize = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.txtremaks = New System.Windows.Forms.RichTextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnsave = New System.Windows.Forms.Button()
@@ -41,6 +37,18 @@ Partial Class frmpapercut
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtunit = New System.Windows.Forms.TextBox()
+        Me.btnunit = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ListView2 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -54,58 +62,23 @@ Partial Class frmpapercut
         '
         'txtpapercut
         '
-        Me.txtpapercut.Location = New System.Drawing.Point(121, 40)
+        Me.txtpapercut.Location = New System.Drawing.Point(172, 43)
         Me.txtpapercut.Name = "txtpapercut"
-        Me.txtpapercut.Size = New System.Drawing.Size(121, 20)
+        Me.txtpapercut.Size = New System.Drawing.Size(150, 20)
         Me.txtpapercut.TabIndex = 1
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(74, 97)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(30, 13)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Size:"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"2x2", "3R", "3x3", ""})
-        Me.ComboBox1.Location = New System.Drawing.Point(121, 89)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 3
-        '
-        'txtsize
-        '
-        Me.txtsize.Location = New System.Drawing.Point(121, 134)
-        Me.txtsize.Name = "txtsize"
-        Me.txtsize.Size = New System.Drawing.Size(121, 20)
-        Me.txtsize.TabIndex = 4
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(74, 141)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(29, 13)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Unit:"
         '
         'txtremaks
         '
-        Me.txtremaks.Location = New System.Drawing.Point(121, 194)
+        Me.txtremaks.Location = New System.Drawing.Point(140, 246)
         Me.txtremaks.Name = "txtremaks"
-        Me.txtremaks.Size = New System.Drawing.Size(167, 96)
+        Me.txtremaks.Size = New System.Drawing.Size(191, 96)
         Me.txtremaks.TabIndex = 12
         Me.txtremaks.Text = ""
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(51, 197)
+        Me.Label4.Location = New System.Drawing.Point(63, 259)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(52, 13)
         Me.Label4.TabIndex = 11
@@ -113,7 +86,7 @@ Partial Class frmpapercut
         '
         'btnsave
         '
-        Me.btnsave.Location = New System.Drawing.Point(311, 267)
+        Me.btnsave.Location = New System.Drawing.Point(337, 319)
         Me.btnsave.Name = "btnsave"
         Me.btnsave.Size = New System.Drawing.Size(75, 23)
         Me.btnsave.TabIndex = 13
@@ -123,7 +96,7 @@ Partial Class frmpapercut
         'ListView1
         '
         Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader8, Me.ColumnHeader9})
-        Me.ListView1.Location = New System.Drawing.Point(61, 329)
+        Me.ListView1.Location = New System.Drawing.Point(87, 363)
         Me.ListView1.Name = "ListView1"
         Me.ListView1.Size = New System.Drawing.Size(670, 183)
         Me.ListView1.TabIndex = 14
@@ -174,34 +147,114 @@ Partial Class frmpapercut
         '
         Me.ColumnHeader9.Text = "Status"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(86, 202)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(29, 13)
+        Me.Label2.TabIndex = 15
+        Me.Label2.Text = "Unit:"
+        '
+        'txtunit
+        '
+        Me.txtunit.Location = New System.Drawing.Point(172, 195)
+        Me.txtunit.Name = "txtunit"
+        Me.txtunit.Size = New System.Drawing.Size(150, 20)
+        Me.txtunit.TabIndex = 16
+        '
+        'btnunit
+        '
+        Me.btnunit.Location = New System.Drawing.Point(140, 195)
+        Me.btnunit.Name = "btnunit"
+        Me.btnunit.Size = New System.Drawing.Size(26, 20)
+        Me.btnunit.TabIndex = 17
+        Me.btnunit.Text = "S"
+        Me.btnunit.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.ListView2)
+        Me.GroupBox1.Location = New System.Drawing.Point(371, 25)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(401, 190)
+        Me.GroupBox1.TabIndex = 18
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Unit"
+        '
+        'ListView2
+        '
+        Me.ListView2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader10, Me.ColumnHeader11, Me.ColumnHeader12, Me.ColumnHeader13})
+        Me.ListView2.Location = New System.Drawing.Point(47, 50)
+        Me.ListView2.Name = "ListView2"
+        Me.ListView2.Size = New System.Drawing.Size(328, 134)
+        Me.ListView2.TabIndex = 19
+        Me.ListView2.UseCompatibleStateImageBehavior = False
+        Me.ListView2.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader10
+        '
+        Me.ColumnHeader10.Text = "ID"
+        '
+        'ColumnHeader11
+        '
+        Me.ColumnHeader11.Text = "Unit"
+        Me.ColumnHeader11.Width = 100
+        '
+        'ColumnHeader12
+        '
+        Me.ColumnHeader12.Text = "WIDTH"
+        '
+        'ColumnHeader13
+        '
+        Me.ColumnHeader13.Text = "HEIGHT"
+        Me.ColumnHeader13.Width = 100
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(140, 39)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(26, 20)
+        Me.Button1.TabIndex = 19
+        Me.Button1.Text = "S"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'RichTextBox1
+        '
+        Me.RichTextBox1.Location = New System.Drawing.Point(140, 89)
+        Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.Size = New System.Drawing.Size(182, 77)
+        Me.RichTextBox1.TabIndex = 20
+        Me.RichTextBox1.Text = ""
+        '
         'frmpapercut
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(810, 557)
+        Me.ClientSize = New System.Drawing.Size(1178, 750)
+        Me.Controls.Add(Me.RichTextBox1)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.btnunit)
+        Me.Controls.Add(Me.txtunit)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.ListView1)
         Me.Controls.Add(Me.btnsave)
         Me.Controls.Add(Me.txtremaks)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.txtsize)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtpapercut)
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmpapercut"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmpapercut"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents txtpapercut As System.Windows.Forms.TextBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents txtsize As System.Windows.Forms.TextBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents txtremaks As System.Windows.Forms.RichTextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents btnsave As System.Windows.Forms.Button
@@ -215,4 +268,15 @@ Partial Class frmpapercut
     Friend WithEvents ColumnHeader7 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader8 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader9 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents txtunit As System.Windows.Forms.TextBox
+    Friend WithEvents btnunit As System.Windows.Forms.Button
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents ListView2 As System.Windows.Forms.ListView
+    Friend WithEvents ColumnHeader10 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader11 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader12 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader13 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
 End Class

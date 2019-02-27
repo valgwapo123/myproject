@@ -1,6 +1,6 @@
 ﻿Public Class frmunit
     Dim unitidx As String
-
+    Dim SelectedUnit As paperunit
     Private Sub ListView1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lvList.SelectedIndexChanged
         If lvList.SelectedItems.Count = 0 Then Exit Sub
         txtunit.Text = lvList.SelectedItems(0).SubItems(1).Text
@@ -82,8 +82,19 @@
         Else
             lvList.SelectedItems(0).SubItems(1).Text = txtunit.Text
             lvList.SelectedItems(0).SubItems(2).Text = txtwidth.Text
-            lvList.SelectedItems(0).SubItems(2).Text = txtheight.Text
+            lvList.SelectedItems(0).SubItems(3).Text = txtheight.Text
         End If
+    End Sub
+
+    Friend Sub LoadCategory(ByVal c As paperunit)
+        If c.UNIT_NAME = Nothing Then Exit Sub
+
+        txtunit.Text = c.UNIT_NAME
+        txtwidth.Text = c.unit_width
+        SelectedUnit = c
+
+
+        btnsave.Text = "&Update"
     End Sub
     Private Sub listviewclick()
 
@@ -131,7 +142,17 @@
         Next
     End Sub
 
-    Private Sub ListView1_SelectedIndexChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView1.SelectedIndexChanged
+    Private Sub additem(ByVal bn As paperunit)
+        With bn
+            Dim lv As ListViewItem = lvList.Items.Add(.Unit_ID)
+            lv.SubItems.Add(.UNIT_NAME)
+            lv.SubItems.Add(.unit_width)
+            lv.SubItems.Add(.unit_height)
+
+            lv.Tag = .Unit_ID
+        End With
+    End Sub
+    Private Sub ListView1_doubleclick_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView1.DoubleClick
         listviewclick()
     End Sub
 

@@ -97,7 +97,7 @@
 
     End Sub
 
-    Private Sub lvList_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lvList.SelectedIndexChanged
+    Private Sub lvList_doubleclick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lvList.DoubleClick
         listviewclick()
     End Sub
     Private Sub selectbarcode()
