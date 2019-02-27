@@ -75,6 +75,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\papercut.vb" />
     <Compile Include="classes\paperroll.vb" />
     <Compile Include="classes\paperunit.vb" />
     <Compile Include="forms\frmpapercut.Designer.vb">

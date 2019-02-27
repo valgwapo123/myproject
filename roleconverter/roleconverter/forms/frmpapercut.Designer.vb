@@ -48,6 +48,7 @@ Partial Class frmpapercut
         Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Button1 = New System.Windows.Forms.Button()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -177,17 +178,19 @@ Partial Class frmpapercut
         Me.GroupBox1.Controls.Add(Me.ListView2)
         Me.GroupBox1.Location = New System.Drawing.Point(371, 25)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(401, 190)
+        Me.GroupBox1.Size = New System.Drawing.Size(464, 190)
         Me.GroupBox1.TabIndex = 18
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Unit"
+        Me.GroupBox1.Visible = False
         '
         'ListView2
         '
-        Me.ListView2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader10, Me.ColumnHeader11, Me.ColumnHeader12, Me.ColumnHeader13})
-        Me.ListView2.Location = New System.Drawing.Point(47, 50)
+        Me.ListView2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader10, Me.ColumnHeader11, Me.ColumnHeader12, Me.ColumnHeader14, Me.ColumnHeader13})
+        Me.ListView2.FullRowSelect = True
+        Me.ListView2.Location = New System.Drawing.Point(21, 36)
         Me.ListView2.Name = "ListView2"
-        Me.ListView2.Size = New System.Drawing.Size(328, 134)
+        Me.ListView2.Size = New System.Drawing.Size(394, 134)
         Me.ListView2.TabIndex = 19
         Me.ListView2.UseCompatibleStateImageBehavior = False
         Me.ListView2.View = System.Windows.Forms.View.Details
@@ -226,6 +229,11 @@ Partial Class frmpapercut
         Me.RichTextBox1.Size = New System.Drawing.Size(182, 77)
         Me.RichTextBox1.TabIndex = 20
         Me.RichTextBox1.Text = ""
+        '
+        'ColumnHeader14
+        '
+        Me.ColumnHeader14.Text = ""
+        Me.ColumnHeader14.Width = 44
         '
         'frmpapercut
         '
@@ -279,4 +287,5 @@ Partial Class frmpapercut
     Friend WithEvents ColumnHeader13 As System.Windows.Forms.ColumnHeader
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
+    Friend WithEvents ColumnHeader14 As System.Windows.Forms.ColumnHeader
 End Class
