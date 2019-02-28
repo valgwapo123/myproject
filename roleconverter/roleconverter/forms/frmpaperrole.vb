@@ -1,7 +1,8 @@
 ﻿Public Class frmpaperrole
     Dim cat_idx As String
     Dim SelectedCat As paperroll
-    Dim paperid As String
+
+    Friend paperrollid
 
     Private Sub btnadd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnsave.Click
         If btnsave.Text = "Add" Then
@@ -71,19 +72,36 @@
     End Sub
 
 
-    Private Sub additemlistview()
 
-        Dim i As Integer = 0
-        For Each l In txtpapername.Lines
-            lvList.Items.Add(l)
-            lvList.Items(lvList.Items.Count - 1).SubItems.Add(txtpapername.Lines(i))
-            lvList.Items(lvList.Items.Count - 1).SubItems.Add(txtpdescription.Lines(i))
-            lvList.Items(lvList.Items.Count - 1).SubItems.Add(txtremaks.Lines(i))
-            lvList.Items(lvList.Items.Count - 1).SubItems.Add("1"(i))
-            i += 1
+
+    Friend Sub LoadCategory(ByVal c As paperroll)
+        If c.PAPER_ID = Nothing Then Exit Sub
+
+        txtpapername.Text = c.PAPERNAME
+        txtpdescription.Text = c.DESCRIPTION
+        txtremaks.Text = c.REMARKS
+        SelectedCat = c
+
+        btnsave.Text = "&Update"
+    End Sub
+    Friend Sub LoadClass(ByVal ppID As Integer)
+        Dim mySql As String = "select * from TBL_PAPERROLL  WHERE PAPERROLE_ID='" & ppID & "'"
+
+        Dim ds As DataSet = LoadSQL(mySql)
+
+        lvList.Items.Clear()
+        For Each dr In ds.Tables(0).Rows
+            Dim lv As ListViewItem = lvList.Items.Add(dr.item("PAPERROLE_ID"))
+            lv.SubItems.Add(dr.item("PAPERNAME"))
+            lv.SubItems.Add(dr.item("DESCRIPTION"))
+            lv.SubItems.Add(dr.item("Remarks"))
+            If dr("STATUS") = "1" Then
+                lv.SubItems.Add("ACTIVE")
+            Else
+                lv.SubItems.Add("NOT ACTIVE")
+            End If
+            Console.WriteLine("Data 1" & dr.item("PaperName"))
         Next
-        i = 0
-
     End Sub
     Private Sub frmcategory_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'loadcategory()
@@ -100,32 +118,7 @@
     End Sub
 
   
-    Private Sub lvList_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lvList.SelectedIndexChanged
-        Dim result As Integer = MessageBox.Show("This is the person ?", "Message", MessageBoxButtons.YesNo)
-        If result = DialogResult.Yes Then
-
-            Dim Z As Integer = 0, nRow As Integer = 0
-
-            With lvList
-                If .SelectedItems.Count > 0 Then
-                    nRow = CInt(.SelectedIndices(0))
-
-                    Z = 0
-
-
-
-                    
-                    paperid = .Items(nRow).SubItems(Z).Text.Trim : Z += 1
-                        txtpapername.Text = .Items(nRow).SubItems(Z).Text.Trim : Z += 1
-                        txtpdescription.Text = .Items(nRow).SubItems(Z).Text.Trim : Z += 1
-                    txtremaks.Text = .Items(nRow).SubItems(Z).Text.Trim : Z += 1
-                    btnsave.Text = "Update"
-                End If
-
-            End With
-        End If
-
-    End Sub
+   
 
     '.Item("PAPERNAME") = _PAPERNAME
     '.Item("DESCRIPTION") = _DESCRIPTION
@@ -220,6 +213,10 @@
     End Sub
 
     Private Sub BackgroundWorker1_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs)
+
+    End Sub
+
+    Private Sub lvList_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lvList.SelectedIndexChanged
 
     End Sub
 End Class

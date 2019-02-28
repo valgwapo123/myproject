@@ -45,17 +45,18 @@ Partial Class frmpapercut
         Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Button1 = New System.Windows.Forms.Button()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(58, 43)
+        Me.Label1.Location = New System.Drawing.Point(60, 43)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(57, 13)
         Me.Label1.TabIndex = 0
@@ -208,6 +209,11 @@ Partial Class frmpapercut
         '
         Me.ColumnHeader12.Text = "WIDTH"
         '
+        'ColumnHeader14
+        '
+        Me.ColumnHeader14.Text = ""
+        Me.ColumnHeader14.Width = 44
+        '
         'ColumnHeader13
         '
         Me.ColumnHeader13.Text = "HEIGHT"
@@ -230,16 +236,21 @@ Partial Class frmpapercut
         Me.RichTextBox1.TabIndex = 20
         Me.RichTextBox1.Text = ""
         '
-        'ColumnHeader14
+        'Label3
         '
-        Me.ColumnHeader14.Text = ""
-        Me.ColumnHeader14.Width = 44
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(58, 92)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(63, 13)
+        Me.Label3.TabIndex = 21
+        Me.Label3.Text = "Description:"
         '
         'frmpapercut
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1178, 750)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox1)
@@ -288,4 +299,5 @@ Partial Class frmpapercut
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents ColumnHeader14 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 End Class

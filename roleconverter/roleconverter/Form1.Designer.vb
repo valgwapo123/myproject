@@ -28,6 +28,7 @@ Partial Class Form1
         Me.PAPERCUTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UnitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -72,11 +73,19 @@ Partial Class Form1
         Me.ReportViewer1.Size = New System.Drawing.Size(8, 8)
         Me.ReportViewer1.TabIndex = 1
         '
+        'Panel1
+        '
+        Me.Panel1.Location = New System.Drawing.Point(229, 76)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(462, 311)
+        Me.Panel1.TabIndex = 2
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(966, 614)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
@@ -96,5 +105,6 @@ Partial Class Form1
     Friend WithEvents PAPERCUTToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents UnitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
 
 End Class

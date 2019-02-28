@@ -24,6 +24,11 @@ Partial Class frmunit
     Private Sub InitializeComponent()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.txtheight = New System.Windows.Forms.TextBox()
+        Me.txtwidth = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.btnsave = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtunit = New System.Windows.Forms.TextBox()
@@ -32,20 +37,15 @@ Partial Class frmunit
         Me.lvList = New System.Windows.Forms.ListView()
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtwidth = New System.Windows.Forms.TextBox()
-        Me.txtheight = New System.Windows.Forms.TextBox()
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -81,6 +81,48 @@ Partial Class frmunit
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Add Unit"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'txtheight
+        '
+        Me.txtheight.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtheight.Location = New System.Drawing.Point(99, 104)
+        Me.txtheight.Name = "txtheight"
+        Me.txtheight.Size = New System.Drawing.Size(171, 20)
+        Me.txtheight.TabIndex = 11
+        '
+        'txtwidth
+        '
+        Me.txtwidth.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtwidth.Location = New System.Drawing.Point(98, 74)
+        Me.txtwidth.Name = "txtwidth"
+        Me.txtwidth.Size = New System.Drawing.Size(171, 20)
+        Me.txtwidth.TabIndex = 10
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(56, 83)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(35, 13)
+        Me.Label4.TabIndex = 9
+        Me.Label4.Text = "width:"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(51, 111)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(41, 13)
+        Me.Label3.TabIndex = 8
+        Me.Label3.Text = "Height:"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(56, 81)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(0, 13)
+        Me.Label2.TabIndex = 7
         '
         'btnsave
         '
@@ -147,6 +189,21 @@ Partial Class frmunit
         Me.ColumnHeader1.Text = "Unit"
         Me.ColumnHeader1.Width = 200
         '
+        'ColumnHeader3
+        '
+        Me.ColumnHeader3.Text = "Width"
+        Me.ColumnHeader3.Width = 200
+        '
+        'ColumnHeader4
+        '
+        Me.ColumnHeader4.Text = "Height"
+        Me.ColumnHeader4.Width = 100
+        '
+        'ColumnHeader9
+        '
+        Me.ColumnHeader9.Text = "Status"
+        Me.ColumnHeader9.Width = 100
+        '
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.ListView1)
@@ -157,58 +214,6 @@ Partial Class frmunit
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "View Unit"
         Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'ColumnHeader3
-        '
-        Me.ColumnHeader3.Text = "Width"
-        Me.ColumnHeader3.Width = 200
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(56, 81)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(0, 13)
-        Me.Label2.TabIndex = 7
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(51, 111)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(41, 13)
-        Me.Label3.TabIndex = 8
-        Me.Label3.Text = "Height:"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(56, 83)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(35, 13)
-        Me.Label4.TabIndex = 9
-        Me.Label4.Text = "width:"
-        '
-        'txtwidth
-        '
-        Me.txtwidth.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtwidth.Location = New System.Drawing.Point(98, 74)
-        Me.txtwidth.Name = "txtwidth"
-        Me.txtwidth.Size = New System.Drawing.Size(171, 20)
-        Me.txtwidth.TabIndex = 10
-        '
-        'txtheight
-        '
-        Me.txtheight.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtheight.Location = New System.Drawing.Point(99, 104)
-        Me.txtheight.Name = "txtheight"
-        Me.txtheight.Size = New System.Drawing.Size(171, 20)
-        Me.txtheight.TabIndex = 11
-        '
-        'ColumnHeader4
-        '
-        Me.ColumnHeader4.Text = "Height"
-        Me.ColumnHeader4.Width = 100
         '
         'ListView1
         '
@@ -240,11 +245,6 @@ Partial Class frmunit
         '
         Me.ColumnHeader8.Text = "Height"
         Me.ColumnHeader8.Width = 100
-        '
-        'ColumnHeader9
-        '
-        Me.ColumnHeader9.Text = "Status"
-        Me.ColumnHeader9.Width = 100
         '
         'frmunit
         '

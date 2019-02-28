@@ -3,6 +3,9 @@
     Private MainTable As String = "TBL_PAPERROLL"
     Dim tbl As String = "TBL_PAPERROLL"
     Dim mysql As String = String.Empty
+
+    Private isLoaded As Boolean = False
+
 #Region "Properties"
     Private _PAPER_ID As String
     Public Property PAPER_ID() As Integer
@@ -11,6 +14,17 @@
         End Get
         Set(ByVal value As Integer)
             _PAPER_ID = value
+        End Set
+    End Property
+
+
+    Private _form_Switch As String
+    Public Property form_Switch() As Integer
+        Get
+            Return _form_Switch
+        End Get
+        Set(ByVal value As Integer)
+            _form_Switch = value
         End Set
     End Property
     Private _PAPERNAME As String
@@ -41,6 +55,15 @@
             _REMARKS = value
         End Set
     End Property
+    Private _code As String
+    Public Property code() As String
+        Get
+            Return _code
+        End Get
+        Set(ByVal value As String)
+            _code = value
+        End Set
+    End Property
 
     Private _STATUS As String
     Public Property STATUS() As String
@@ -64,6 +87,56 @@
 
 #Region "FUnction"
 
+
+    Public Sub LoadCat(ByVal id As Integer)
+        If isLoaded Then Exit Sub
+
+        Dim mySql As String = String.Format("SELECT * FROM {0} WHERE PAPERROLE_ID = '{1}'", MainTable, id)
+        Dim ds As DataSet = LoadSQL(mySql, MainTable)
+
+        If ds.Tables(MainTable).Rows.Count <= 0 Then
+            MsgBox("Unable to load category", MsgBoxStyle.Critical)
+            Exit Sub
+        End If
+
+        LoadScheme_row(ds.Tables(MainTable).Rows(0))
+
+
+     
+        isLoaded = True
+    End Sub
+    Public Sub LoadScheme_row(ByVal dr As DataRow)
+        With dr
+            _PAPER_ID = .Item("PAPERROLE_ID")
+            _PAPERNAME = .Item("PAPERNAME")
+            _DESCRIPTION = .Item("DESCRIPTION")
+            _code = .Item("CODE")
+            _REMARKS = .Item("REMARKS")
+            _STATUS = .Item("STATUS")
+        End With
+    End Sub
+
+    Public Sub load_Barcodes(ByVal idx As Integer)
+        mysql = "select * from " & tbl & "  where id =" & idx
+        Dim ds As DataSet = LoadSQL(mysql, tbl)
+
+        If ds.Tables(0).Rows.Count = 0 Then
+            MsgBox("barcode not found")
+            Exit Sub
+        End If
+
+        For Each dr As DataRow In ds.Tables(0).Rows
+            loadbyRowxx(dr)
+        Next
+    End Sub
+    Friend Sub loadbyRowxx(ByVal dr As DataRow)
+        With dr
+            _PAPER_ID = .Item("PAPERROLE_ID")
+            _PAPERNAME = .Item("PAPERNAME")
+            _DESCRIPTION = .Item("DESCRIPTION")
+            _REMARKS = .Item("REMARKS")
+        End With
+    End Sub
     Public Sub SaveCat()
         Dim mySql As String = String.Format("SELECT * FROM {0}", MainTable)
         Dim ds As DataSet = LoadSQL(mySql, MainTable)
@@ -109,10 +182,10 @@
             MessageBox.Show("updated Successfully ")
 
         Else
-           
+
         End If
 
-   
+
 
     End Sub
     Public Sub Load_categoryxxx(ByVal PAPERROLEID As Integer)

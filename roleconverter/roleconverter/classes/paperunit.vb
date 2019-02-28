@@ -45,6 +45,8 @@
             _unit_height = value
         End Set
     End Property
+
+
     Private _unit_status As Integer
     Public Property unit_status() As Integer
         Get
@@ -75,7 +77,7 @@
     Public Sub LoadCat(ByVal id As Integer)
         If isLoaded Then Exit Sub
 
-        Dim mySql As String = String.Format("SELECT * FROM {0} WHERE TBL_UNIT = '{1}'", MainTable, id)
+        Dim mySql As String = String.Format("SELECT * FROM {0} WHERE Unit_ID = '{1}'", MainTable, id)
         Dim ds As DataSet = LoadSQL(mySql, MainTable)
 
         If ds.Tables(MainTable).Rows.Count <= 0 Then

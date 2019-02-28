@@ -1,29 +1,18 @@
 ﻿Public Class frmpaperroll
     Dim SelectedCat As paperroll
+    Dim tmpcat As paperroll
+    Friend paperrollid
+    Dim tbl As String = "TBL_PAPERROLL"
+    Dim mysql As String = String.Empty
     Private Sub frmpaperroll_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         LoadClass()
     End Sub
-    'Private Sub loadcategory(Optional ByVal str As String = "select * from TBL_PAPERROLL order by PAPERROLE_ID asc")
-    '    ''Dim ds As DataSet = LoadSQL(str, "TBL_PAPERROLL")
-
-    '    ''If ds.Tables(0).Rows.Count = 0 Then lvList.Items.Clear() : Exit Sub
-
-    '    ''lvList.Items.Clear()
-    '    ''For Each dr As DataRow In ds.Tables(0).Rows
-    '    ''    Dim bnj As New paperroll
-    '    ''    bnj.Load_categoryxxx(dr.Item("PAPERROLE_ID"))
-
-    '    ''    additem(bnj)
-
-
-    '    'Next
-
-    'End Sub
-    Private Sub LoadClass()
-        Dim mySql As String = "select * from TBL_PAPERROLL  WHERE STATUS='1' order by PAPERROLE_ID "
+  
+    Public Sub LoadClass()
+        Dim mySql As String = "select * from TBL_PAPERROLL  WHERE STATUS='1' order by PAPERROLE_ID"
         Dim ds As DataSet = LoadSQL(mySql)
 
-        lvList.Items.Clear()
+        '   lvList.Items.Clear()
         For Each dr As DataRow In ds.Tables(0).Rows
             Dim lv As ListViewItem = lvList.Items.Add(dr("PAPERROLE_ID"))
             lv.SubItems.Add(dr("PAPERNAME"))
@@ -54,48 +43,32 @@
 
     End Sub
     Private Sub listviewclick()
-        frmpaperrole.lvList.Items.Clear()
+       
 
-        Dim Z As Integer = 0, nRow As Integer = 0
+        If lvList.SelectedItems.Count <= 0 Then Exit Sub
 
-        With lvList
-            If .SelectedItems.Count > 0 Then
-                nRow = CInt(.SelectedIndices(0))
+        Dim PaperrollID As Integer
+        PaperrollID = lvList.FocusedItem.Text
+        Console.WriteLine("Paperroll ID: " & PaperrollID)
 
-                Z = 0
+        tmpcat = New paperroll
+        tmpcat.LoadCat(PaperrollID)
+        'frmpaperrole.paperrollid = PaperrollID
+        frmpaperrole.LoadClass(PaperrollID)
+  
 
+        frmpaperrole.Show()
 
-                frmpaperrole.txtpaperid.Text = .Items(nRow).SubItems(Z).Text.Trim : Z += 1
-
-
-                frmpaperrole.txtpapername.Text = .Items(nRow).SubItems(Z).Text.Trim : Z += 1
-
-                frmpaperrole.txtpdescription.Text = .Items(nRow).SubItems(Z).Text.Trim : Z += 1
-                frmpaperrole.txtremaks.Text = .Items(nRow).SubItems(Z).Text.Trim : Z += 1
-                frmpaperrole.btnsave.Text = "Update"
-
-
-            End If
-        End With
 
         frmpaperrole.Enabled = True
-        Me.Close()
+
         frmpaperrole.Focus()
 
+       
 
-        Dim lv As ListViewItem = frmpaperrole.lvList.Items.Add(frmpaperrole.txtpaperid.Text)
-        lv.SubItems.Add(frmpaperrole.txtpapername.Text)
-        lv.SubItems.Add(frmpaperrole.txtpdescription.Text)
-        lv.SubItems.Add(frmpaperrole.txtremaks.Text)
-        lv.SubItems.Add("processing")
-
-
-
-
-        frmpaperrole.txtpaperid.Visible = False
-
-
+        Me.Close()
     End Sub
+   
 
     Private Sub lvList_doubleclick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lvList.DoubleClick
         listviewclick()

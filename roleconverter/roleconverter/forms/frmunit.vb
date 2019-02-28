@@ -1,7 +1,10 @@
 ﻿Public Class frmunit
     Dim unitidx As String
     Dim SelectedUnit As paperunit
-    Private Sub ListView1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lvList.SelectedIndexChanged
+    Dim tmpcat As paperunit
+    Friend paperunit
+
+    Private Sub ListView1_doubleclicxk(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lvList.SelectedIndexChanged
         If lvList.SelectedItems.Count = 0 Then Exit Sub
         txtunit.Text = lvList.SelectedItems(0).SubItems(1).Text
         txtwidth.Text = lvList.SelectedItems(0).SubItems(2).Text
@@ -100,29 +103,53 @@
 
 
 
+
+
+
+        Dim paperrollunit As Integer
+        paperrollunit = ListView1.FocusedItem.Text
+        Console.WriteLine("Paperroll ID: " & paperrollunit)
+
+        tmpcat = New paperunit
+        tmpcat.LoadCat(paperrollunit)
+
+
+        Me.TabControl1.SelectedTab = Me.TabPage1
+
+        LoadClassxx(paperrollunit)
+
+
+
+
+
+      
+
+
+
+    End Sub
+    Public Sub LoadClassxx(ByVal ppidx)
+
+
+        Dim mySql As String = "select * from TBL_UNIT  WHERE UNIT_ID='" & ppidx & "'"
+
+        Dim ds As DataSet = LoadSQL(mySql)
+
         lvList.Items.Clear()
-        Dim i As Integer = ListView1.FocusedItem.Tag
-        Dim bn As New paperunit
-
-        bn.load_Barcodes(i)
-        With bn
-            Dim lv As ListViewItem = lvList.Items.Add(.Unit_ID)
-            lv.SubItems.Add(.UNIT_NAME)
-            lv.SubItems.Add(.unit_width)
-            lv.SubItems.Add(.unit_height)
-
-            lv.Tag = .Unit_ID
-
-
-        End With
-
-        TabControl1.SelectedTab = TabPage1
+        For Each dr As DataRow In ds.Tables(0).Rows
+            Dim lv As ListViewItem = lvList.Items.Add(dr("UNIT_ID"))
+            lv.SubItems.Add(dr("UNIT_NAME"))
+            lv.SubItems.Add(dr("UNIT_WIDTH"))
+            lv.SubItems.Add(dr("UNIT_HEIGHT"))
+            Dim a As String
+            If (dr("STATUS") = 1) Then
+                a = "Active"
+            Else
+                a = "NOT ACTIVE"
+            End If
+            lv.SubItems.Add(a)
 
 
-
-
-
-
+        Next
     End Sub
     Private Sub frmunit_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         LoadClass()
@@ -158,5 +185,15 @@
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
    
+    End Sub
+
+    Private Sub ListView1_doubleclick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView1.DoubleClick
+        listviewclick()
+
+
+    End Sub
+
+    Private Sub ListView1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView1.SelectedIndexChanged
+
     End Sub
 End Class
