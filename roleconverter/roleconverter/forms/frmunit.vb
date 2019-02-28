@@ -1,20 +1,22 @@
 ﻿Public Class frmunit
-    Dim unitidx As String
+
     Dim SelectedUnit As paperunit
     Dim tmpcat As paperunit
-    Friend paperunit
+    Dim idx As Integer = 0
 
-    Private Sub ListView1_doubleclicxk(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lvList.SelectedIndexChanged
+    Public Sub ListView1_doubleclicxk(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lvList.SelectedIndexChanged
         If lvList.SelectedItems.Count = 0 Then Exit Sub
+        idx = lvList.SelectedItems(0).SubItems(0).Text
         txtunit.Text = lvList.SelectedItems(0).SubItems(1).Text
         txtwidth.Text = lvList.SelectedItems(0).SubItems(2).Text
         txtheight.Text = lvList.SelectedItems(0).SubItems(3).Text
         btnsave.Text = "&Update"
 
 
+
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Friend Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         If btnsave.Text = "Add" Then
             Dim msg As DialogResult = MsgBox("Do you want to save this?", MsgBoxStyle.YesNo, "Question")
             If msg = vbNo Then Exit Sub
@@ -25,7 +27,7 @@
             lvList.Items.Clear()
             Exit Sub
         End If
-        If btnsave.Text = "&Update"  Then
+        If btnsave.Text = "&Update" Then
             If lvList.Items.Count = 0 Then Exit Sub
 
             Dim msg As DialogResult = MsgBox("Do you want to save this?", MsgBoxStyle.YesNo, "Question")
@@ -35,12 +37,17 @@
             For Each lv As ListViewItem In lvList.Items
                 Dim bnj As New paperunit
                 With bnj
-                    .Unit_ID = lv.Tag
+
+                    .Unit_ID = lv.SubItems(0).Text
                     .UNIT_NAME = lv.SubItems(1).Text
                     .unit_width = lv.SubItems(2).Text
                     .unit_height = lv.SubItems(3).Text
+                 
+
 
                     .Updatebarcode()
+                    LoadClass()
+                    lvList.Items.Clear()
                 End With
             Next
             MsgBox("Successfully updated.")
@@ -65,27 +72,33 @@
 
     End Sub
     Private Sub btnadd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnsave.Click
-        'If btnsave.Text = "Add" Then
+        If btnsave.Text = "Add" Then
 
-        '    Dim lv As ListViewItem = lvList.Items.Add(0)
-        '    lv.SubItems.Add(txtunit.Text)
-        '    lv.SubItems.Add(txtwidth.Text)
-        '    lv.SubItems.Add(txtheight.Text)
-        '    lv.SubItems.Add("PROCESSING")
-        '    txtunit.Clear() : txtwidth.Clear() : txtheight.Clear()
-
-        '    Exit Sub
-
-        'End If
-        If btnsave.Text = "&Update" Then
             Dim lv As ListViewItem = lvList.Items.Add(0)
             lv.SubItems.Add(txtunit.Text)
             lv.SubItems.Add(txtwidth.Text)
             lv.SubItems.Add(txtheight.Text)
+            lv.SubItems.Add("PROCESSING")
+            txtunit.Clear() : txtwidth.Clear() : txtheight.Clear()
+
+            Exit Sub
+
+        End If
+        If btnsave.Text = "&Update" Then
+            lvList.Items.Clear()
+
+            Dim lv As ListViewItem = lvList.Items.Add(idx)
+            lv.SubItems.Add(txtunit.Text)
+            lv.SubItems.Add(txtwidth.Text)
+            lv.SubItems.Add(txtheight.Text)
+            lv.SubItems.Add("ACTIVE")
+            txtunit.Clear() : txtwidth.Clear() : txtheight.Clear()
         Else
             lvList.SelectedItems(0).SubItems(1).Text = txtunit.Text
             lvList.SelectedItems(0).SubItems(2).Text = txtwidth.Text
             lvList.SelectedItems(0).SubItems(3).Text = txtheight.Text
+            lvList.SelectedItems(0).SubItems(4).Text = "active"
+            txtunit.Clear() : txtwidth.Clear() : txtheight.Clear()
         End If
     End Sub
 
@@ -169,16 +182,7 @@
         Next
     End Sub
 
-    Private Sub additem(ByVal bn As paperunit)
-        With bn
-            Dim lv As ListViewItem = lvList.Items.Add(.Unit_ID)
-            lv.SubItems.Add(.UNIT_NAME)
-            lv.SubItems.Add(.unit_width)
-            lv.SubItems.Add(.unit_height)
 
-            lv.Tag = .Unit_ID
-        End With
-    End Sub
     Private Sub ListView1_doubleclick_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView1.DoubleClick
         listviewclick()
     End Sub

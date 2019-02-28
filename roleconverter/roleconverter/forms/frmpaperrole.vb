@@ -2,7 +2,7 @@
     Dim cat_idx As String
     Dim SelectedCat As paperroll
 
-    Friend paperrollid
+    Dim idx As Integer = 0
 
     Private Sub btnadd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnsave.Click
         If btnsave.Text = "Add" Then
@@ -15,10 +15,10 @@
             txtpapername.Clear() : txtpdescription.Clear() : txtremaks.Clear()
             Exit Sub
         End If
-        If btnsave.Text = "Update" Then
+        If btnsave.Text = "&Update" Then
             'additemlistview()
             lvList.Items.Clear()
-            Dim lv As ListViewItem = lvList.Items.Add(txtpaperid.Text)
+            Dim lv As ListViewItem = lvList.Items.Add(idx)
             lv.SubItems.Add(txtpapername.Text)
             lv.SubItems.Add(txtpdescription.Text)
             lv.SubItems.Add(txtremaks.Text)
@@ -164,7 +164,7 @@
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
 
-        If btnsave.Text = "Update" Then
+        If btnsave.Text = "&Update" Then
 
             updatelist()
 
@@ -213,6 +213,17 @@
     End Sub
 
     Private Sub BackgroundWorker1_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs)
+
+    End Sub
+
+    Private Sub lvList_doubleclick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lvList.DoubleClick
+        If lvList.SelectedItems.Count = 0 Then Exit Sub
+        idx = lvList.SelectedItems(0).SubItems(0).Text
+        txtpapername.Text = lvList.SelectedItems(0).SubItems(1).Text
+        txtpdescription.Text = lvList.SelectedItems(0).SubItems(2).Text
+        txtremaks.Text = lvList.SelectedItems(0).SubItems(3).Text
+        btnsave.Text = "&Update"
+
 
     End Sub
 

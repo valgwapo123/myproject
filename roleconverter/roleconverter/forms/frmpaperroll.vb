@@ -1,13 +1,23 @@
 ﻿Public Class frmpaperroll
     Dim SelectedCat As paperroll
     Dim tmpcat As paperroll
+    Dim formden As Integer
+
     Friend paperrollid
     Dim tbl As String = "TBL_PAPERROLL"
     Dim mysql As String = String.Empty
     Private Sub frmpaperroll_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         LoadClass()
+
     End Sub
-  
+    Public Sub formindentifier(ByVal ppx As Integer)
+        If Val(ppx) = 1 Then
+            formden = 1
+
+        Else
+            formden = 0
+        End If
+    End Sub
     Public Sub LoadClass()
         Dim mySql As String = "select * from TBL_PAPERROLL  WHERE STATUS='1' order by PAPERROLE_ID"
         Dim ds As DataSet = LoadSQL(mySql)
@@ -45,28 +55,29 @@
     Private Sub listviewclick()
        
 
-        If lvList.SelectedItems.Count <= 0 Then Exit Sub
+        If lvList.SelectedItems.Count <= 0 Then
+            frmpaperrole.Focus()
+            Exit Sub
+        End If
 
-        Dim PaperrollID As Integer
-        PaperrollID = lvList.FocusedItem.Text
-        Console.WriteLine("Paperroll ID: " & PaperrollID)
+            Dim PaperrollID As Integer
+            PaperrollID = lvList.FocusedItem.Text
+            Console.WriteLine("Paperroll ID: " & PaperrollID)
 
-        tmpcat = New paperroll
-        tmpcat.LoadCat(PaperrollID)
-        'frmpaperrole.paperrollid = PaperrollID
-        frmpaperrole.LoadClass(PaperrollID)
-  
-
-        frmpaperrole.Show()
+            tmpcat = New paperroll
+            tmpcat.LoadCat(PaperrollID)
+            'frmpaperrole.paperrollid = PaperrollID
+            frmpaperrole.LoadClass(PaperrollID)
+            frmpaperrole.Show()
 
 
-        frmpaperrole.Enabled = True
+            frmpaperrole.Enabled = True
 
-        frmpaperrole.Focus()
+            frmpaperrole.Focus()
 
-       
 
-        Me.Close()
+
+            Me.Close()
     End Sub
    
 
