@@ -1,6 +1,6 @@
 ﻿Public Class frmproduction
-    Dim idx As Integer = 0
-    Dim cutidx As Integer = 0
+    Dim idx As String
+    Dim cutidx As String
     Private Sub txtquantity_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
@@ -11,6 +11,22 @@
         LoadClass()
     End Sub
     Public Sub LoadClass()
+        Dim mySql As String = "select * from TBL_PAPERROLL  WHERE STATUS='1' order by PAPERROLE_ID"
+        Dim ds As DataSet = LoadSQL(mySql)
+
+        '   lvList.Items.Clear()
+        For Each dr As DataRow In ds.Tables(0).Rows
+            Dim lv As ListViewItem = lvList.Items.Add(dr("PAPERROLE_ID"))
+            lv.SubItems.Add(dr("PAPERNAME"))
+            lv.SubItems.Add(dr("DESCRIPTION"))
+            lv.SubItems.Add(dr("SERIAL_CODE"))
+            lv.SubItems.Add(dr("Height") & " " & "Meters")
+            lv.SubItems.Add(dr("Remarks"))
+
+
+        Next
+    End Sub
+    Public Sub LoadPRODUCTION()
         Dim mySql As String = "select * from TBL_PAPERROLL  WHERE STATUS='1' order by PAPERROLE_ID"
         Dim ds As DataSet = LoadSQL(mySql)
 
@@ -53,18 +69,19 @@
             lv.SubItems.Add(dr("REMARKS").ToString)
 
 
-        
+
         Next
 
     End Sub
 
-    Private Sub lvList_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lvList.SelectedIndexChanged
+    Private Sub lvList_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
  
     Private Sub ListView1_doubleclick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView1.DoubleClick
         If ListView1.SelectedItems.Count = 0 Then Exit Sub
-        cutidx = lvList.SelectedItems(0).SubItems(0).Text
+        cutidx = lvList.SelectedItems(0).SubItems(1).Text
+        MessageBox.Show(cutidx)
         txtpapercut.Text = ListView1.SelectedItems(0).SubItems(2).Text
         txtdescription.Text = ListView1.SelectedItems(0).SubItems(3).Text
         txtunit.Text = ListView1.SelectedItems(0).SubItems(4).Text
@@ -73,7 +90,7 @@
 
     End Sub
 
-    Private Sub ListView2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lvlproduction.SelectedIndexChanged
+    Private Sub ListView2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
 
@@ -83,7 +100,7 @@
         If btnadd.Text = "Add" Or btnadd.Text = "&Add" Then
 
             Dim lv As ListViewItem = lvlproduction.Items.Add(cutidx)
-            lv.SubItems.Add(cutidx)
+
             lv.SubItems.Add(txtpapercut.Text)
             lv.SubItems.Add(txtdescription.Text)
             lv.SubItems.Add(txtunit.Text)
@@ -95,7 +112,7 @@
         End If
     End Sub
 
-    Private Sub ListView1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView1.SelectedIndexChanged
+    Private Sub ListView1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
 
@@ -110,7 +127,8 @@
             Dim bnj As New production
             With bnj
                 .CUT_ID = lv.SubItems(0).Text
-              
+                MessageBox.Show(.CUT_ID)
+
                 .quantity_pro = lv.SubItems(6).Text
                 .statusx = "1"
            
@@ -128,7 +146,11 @@
         lvlproduction.Items.RemoveAt(ListView1.SelectedIndices(0))
     End Sub
 
-    Private Sub GroupBox2_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GroupBox2.Enter
+    Private Sub GroupBox2_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+
+    Private Sub ListView1_SelectedIndexChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView1.SelectedIndexChanged
 
     End Sub
 End Class
