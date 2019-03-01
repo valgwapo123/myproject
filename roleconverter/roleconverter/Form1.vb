@@ -19,4 +19,8 @@
 
         Me.ReportViewer1.RefreshReport()
     End Sub
+
+    Private Sub ProductionToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ProductionToolStripMenuItem.Click
+
+    End Sub
 End Class

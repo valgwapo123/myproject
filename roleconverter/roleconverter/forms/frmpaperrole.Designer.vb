@@ -41,6 +41,12 @@ Partial Class frmpaperrole
         Me.btnsearch = New System.Windows.Forms.Button()
         Me.txtsearch = New System.Windows.Forms.TextBox()
         Me.txtpaperid = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtserial = New System.Windows.Forms.TextBox()
+        Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtheight = New System.Windows.Forms.TextBox()
+        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.SuspendLayout()
         '
         'txtpapername
@@ -78,20 +84,20 @@ Partial Class frmpaperrole
         '
         'btnsave
         '
-        Me.btnsave.Location = New System.Drawing.Point(344, 241)
+        Me.btnsave.Location = New System.Drawing.Point(338, 344)
         Me.btnsave.Name = "btnsave"
         Me.btnsave.Size = New System.Drawing.Size(75, 23)
-        Me.btnsave.TabIndex = 3
+        Me.btnsave.TabIndex = 4
         Me.btnsave.Text = "Add"
         Me.btnsave.UseVisualStyleBackColor = True
         '
         'lvList
         '
-        Me.lvList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader4, Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader5})
+        Me.lvList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader4, Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader3, Me.ColumnHeader5})
         Me.lvList.FullRowSelect = True
-        Me.lvList.Location = New System.Drawing.Point(80, 270)
+        Me.lvList.Location = New System.Drawing.Point(74, 373)
         Me.lvList.Name = "lvList"
-        Me.lvList.Size = New System.Drawing.Size(579, 204)
+        Me.lvList.Size = New System.Drawing.Size(674, 204)
         Me.lvList.TabIndex = 5
         Me.lvList.UseCompatibleStateImageBehavior = False
         Me.lvList.View = System.Windows.Forms.View.Details
@@ -132,7 +138,7 @@ Partial Class frmpaperrole
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(82, 168)
+        Me.Label4.Location = New System.Drawing.Point(82, 254)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(52, 13)
         Me.Label4.TabIndex = 9
@@ -140,15 +146,15 @@ Partial Class frmpaperrole
         '
         'txtremaks
         '
-        Me.txtremaks.Location = New System.Drawing.Point(149, 168)
+        Me.txtremaks.Location = New System.Drawing.Point(149, 254)
         Me.txtremaks.Name = "txtremaks"
         Me.txtremaks.Size = New System.Drawing.Size(167, 96)
-        Me.txtremaks.TabIndex = 2
+        Me.txtremaks.TabIndex = 3
         Me.txtremaks.Text = ""
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(183, 491)
+        Me.Button1.Location = New System.Drawing.Point(233, 607)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 4
@@ -157,7 +163,7 @@ Partial Class frmpaperrole
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(288, 491)
+        Me.Button2.Location = New System.Drawing.Point(338, 607)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 12
@@ -184,16 +190,64 @@ Partial Class frmpaperrole
         'txtpaperid
         '
         Me.txtpaperid.AutoSize = True
-        Me.txtpaperid.Location = New System.Drawing.Point(74, 471)
+        Me.txtpaperid.Location = New System.Drawing.Point(71, 534)
         Me.txtpaperid.Name = "txtpaperid"
         Me.txtpaperid.Size = New System.Drawing.Size(0, 13)
         Me.txtpaperid.TabIndex = 15
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(72, 171)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(64, 13)
+        Me.Label5.TabIndex = 17
+        Me.Label5.Text = "Serial Code:"
+        '
+        'txtserial
+        '
+        Me.txtserial.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtserial.Location = New System.Drawing.Point(149, 164)
+        Me.txtserial.Name = "txtserial"
+        Me.txtserial.Size = New System.Drawing.Size(167, 20)
+        Me.txtserial.TabIndex = 2
+        '
+        'ColumnHeader6
+        '
+        Me.ColumnHeader6.Text = "Serial Code"
+        Me.ColumnHeader6.Width = 100
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(70, 218)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(73, 13)
+        Me.Label6.TabIndex = 21
+        Me.Label6.Text = "Height(meter):"
+        '
+        'txtheight
+        '
+        Me.txtheight.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtheight.Location = New System.Drawing.Point(149, 211)
+        Me.txtheight.Name = "txtheight"
+        Me.txtheight.Size = New System.Drawing.Size(167, 20)
+        Me.txtheight.TabIndex = 20
+        '
+        'ColumnHeader7
+        '
+        Me.ColumnHeader7.Text = "Height"
+        Me.ColumnHeader7.Width = 100
         '
         'frmpaperrole
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1041, 739)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.txtheight)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.txtserial)
         Me.Controls.Add(Me.txtpaperid)
         Me.Controls.Add(Me.txtsearch)
         Me.Controls.Add(Me.btnsearch)
@@ -235,4 +289,10 @@ Partial Class frmpaperrole
     Friend WithEvents btnsearch As System.Windows.Forms.Button
     Friend WithEvents txtsearch As System.Windows.Forms.TextBox
     Friend WithEvents txtpaperid As System.Windows.Forms.Label
+    Friend WithEvents ColumnHeader6 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents txtserial As System.Windows.Forms.TextBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents txtheight As System.Windows.Forms.TextBox
+    Friend WithEvents ColumnHeader7 As System.Windows.Forms.ColumnHeader
 End Class

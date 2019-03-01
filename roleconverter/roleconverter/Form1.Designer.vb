@@ -29,12 +29,13 @@ Partial Class Form1
         Me.UnitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.ProductionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SETTINGToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SETTINGToolStripMenuItem, Me.ProductionToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(966, 24)
@@ -51,19 +52,19 @@ Partial Class Form1
         'PAPERINFOToolStripMenuItem
         '
         Me.PAPERINFOToolStripMenuItem.Name = "PAPERINFOToolStripMenuItem"
-        Me.PAPERINFOToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.PAPERINFOToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PAPERINFOToolStripMenuItem.Text = "PAPER INFO"
         '
         'PAPERCUTToolStripMenuItem
         '
         Me.PAPERCUTToolStripMenuItem.Name = "PAPERCUTToolStripMenuItem"
-        Me.PAPERCUTToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.PAPERCUTToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PAPERCUTToolStripMenuItem.Text = "PAPER CUT"
         '
         'UnitToolStripMenuItem
         '
         Me.UnitToolStripMenuItem.Name = "UnitToolStripMenuItem"
-        Me.UnitToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.UnitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.UnitToolStripMenuItem.Text = "Unit"
         '
         'ReportViewer1
@@ -79,6 +80,12 @@ Partial Class Form1
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(462, 311)
         Me.Panel1.TabIndex = 2
+        '
+        'ProductionToolStripMenuItem
+        '
+        Me.ProductionToolStripMenuItem.Name = "ProductionToolStripMenuItem"
+        Me.ProductionToolStripMenuItem.Size = New System.Drawing.Size(78, 20)
+        Me.ProductionToolStripMenuItem.Text = "Production"
         '
         'Form1
         '
@@ -106,5 +113,6 @@ Partial Class Form1
     Friend WithEvents UnitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents ProductionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

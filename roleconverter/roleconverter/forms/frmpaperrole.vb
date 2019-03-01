@@ -10,6 +10,8 @@
             Dim lv As ListViewItem = lvList.Items.Add(0)
             lv.SubItems.Add(txtpapername.Text)
             lv.SubItems.Add(txtpdescription.Text)
+            lv.SubItems.Add(txtserial.Text)
+            lv.SubItems.Add(txtheight.Text)
             lv.SubItems.Add(txtremaks.Text)
             lv.SubItems.Add("processing")
             txtpapername.Clear() : txtpdescription.Clear() : txtremaks.Clear()
@@ -21,9 +23,11 @@
             Dim lv As ListViewItem = lvList.Items.Add(idx)
             lv.SubItems.Add(txtpapername.Text)
             lv.SubItems.Add(txtpdescription.Text)
+            lv.SubItems.Add(txtserial.Text)
+            lv.SubItems.Add(txtheight.Text)
             lv.SubItems.Add(txtremaks.Text)
             lv.SubItems.Add("processing")
-            txtpapername.Clear() : txtpdescription.Clear() : txtremaks.Clear()
+            txtpapername.Clear() : txtpdescription.Clear() : txtremaks.Clear() : txtserial.Clear()
             Exit Sub
         End If
     End Sub
@@ -47,6 +51,7 @@
             Dim lv As ListViewItem = lvList.Items.Add(.PAPER_ID)
             lv.SubItems.Add(.PAPERNAME)
             lv.SubItems.Add(.DESCRIPTION)
+            lv.SubItems.Add(.code)
             lv.SubItems.Add(.REMARKS)
             lv.SubItems.Add(.STATUS)
             lv.Tag = .PAPERNAME
@@ -61,7 +66,9 @@
             With bnj
                 .PAPERNAME = lv.SubItems(1).Text
                 .DESCRIPTION = lv.SubItems(2).Text
-                .REMARKS = lv.SubItems(3).Text
+                .code = lv.SubItems(3).Text
+                .Heightx = lv.SubItems(4).Text
+                .REMARKS = lv.SubItems(5).Text
                 .STATUS = "1"
                 .savepaperole()
             End With
@@ -94,6 +101,8 @@
             Dim lv As ListViewItem = lvList.Items.Add(dr.item("PAPERROLE_ID"))
             lv.SubItems.Add(dr.item("PAPERNAME"))
             lv.SubItems.Add(dr.item("DESCRIPTION"))
+            lv.SubItems.Add(dr.item("Serial_Code"))
+            lv.SubItems.Add(dr.item("Height"))
             lv.SubItems.Add(dr.item("Remarks"))
             If dr("STATUS") = "1" Then
                 lv.SubItems.Add("ACTIVE")
@@ -168,7 +177,8 @@
 
             updatelist()
 
-            btnsave.Text = "&Add" : txtpapername.Clear() : txtpdescription.Clear() : txtremaks.Clear()
+            btnsave.Text = "&Add" : txtpapername.Clear() : txtpdescription.Clear() : txtremaks.Clear() : txtserial.Clear() : txtheight.Clear()
+
             lvList.Items.Clear()
             Exit Sub
         End If
@@ -197,7 +207,9 @@
                 .PAPER_ID = (item.SubItems(0).Text)
                 .PAPERNAME = item.SubItems(1).Text
                 .DESCRIPTION = item.SubItems(2).Text
-                .REMARKS = item.SubItems(3).Text
+                .code = item.SubItems(3).Text
+                .Heightx = item.SubItems(4).Text
+                .REMARKS = item.SubItems(5).Text
 
                 .Updatepaperoll()
             End With
@@ -221,7 +233,9 @@
         idx = lvList.SelectedItems(0).SubItems(0).Text
         txtpapername.Text = lvList.SelectedItems(0).SubItems(1).Text
         txtpdescription.Text = lvList.SelectedItems(0).SubItems(2).Text
-        txtremaks.Text = lvList.SelectedItems(0).SubItems(3).Text
+        txtserial.Text = lvList.SelectedItems(0).SubItems(3).Text
+        txtheight.Text = lvList.SelectedItems(0).SubItems(4).Text
+        txtremaks.Text = lvList.SelectedItems(0).SubItems(5).Text
         btnsave.Text = "&Update"
 
 

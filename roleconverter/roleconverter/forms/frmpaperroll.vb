@@ -24,10 +24,12 @@
 
         '   lvList.Items.Clear()
         For Each dr As DataRow In ds.Tables(0).Rows
-            Dim lv As ListViewItem = lvList.Items.Add(dr("PAPERROLE_ID"))
-            lv.SubItems.Add(dr("PAPERNAME"))
-            lv.SubItems.Add(dr("DESCRIPTION"))
-            lv.SubItems.Add(dr("Remarks"))
+            Dim lv As ListViewItem = lvList.Items.Add(dr("PAPERROLE_ID").ToString)
+            lv.SubItems.Add(dr("PAPERNAME").ToString)
+            lv.SubItems.Add(dr("DESCRIPTION").ToString)
+            lv.SubItems.Add(dr("Serial_Code").ToString)
+            lv.SubItems.Add(dr("Height").ToString & "(meters)")
+            lv.SubItems.Add(dr("Remarks").ToString)
             If dr("STATUS") = "1" Then
                 lv.SubItems.Add("ACTIVE")
             Else
@@ -48,7 +50,13 @@
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        If lvList.SelectedItems.Count = 0 Then
+            frmpaperrole.Enabled = True
+            Me.Close()
+            frmpaperrole.Focus()
+            Exit Sub
 
+        End If
         listviewclick()
 
     End Sub
@@ -94,7 +102,7 @@
             Dim lv As ListViewItem = frmpaperrole.lvList.Items.Add(.PAPER_ID)
             lv.SubItems.Add(.PAPERNAME)
             lv.SubItems.Add(.DESCRIPTION)
-            lv.SubItems.Add(.REMARKS)
+            lv.SubItems.Add(.code)
             lv.SubItems.Add(.REMARKS)
             lv.SubItems.Add(.STATUS)
             lv.Tag = .PAPER_ID

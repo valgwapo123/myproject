@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.roleconverter.frmpapercut
+            Me.MainForm = Global.roleconverter.frmproduction
         End Sub
     End Class
 End Namespace

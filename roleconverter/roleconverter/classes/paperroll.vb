@@ -65,6 +65,15 @@
         End Set
     End Property
 
+    Private _Heightx As String
+    Public Property Heightx() As String
+        Get
+            Return _Heightx
+        End Get
+        Set(ByVal value As String)
+            _Heightx = value
+        End Set
+    End Property
     Private _STATUS As String
     Public Property STATUS() As String
         Get
@@ -110,7 +119,7 @@
             _PAPER_ID = .Item("PAPERROLE_ID")
             _PAPERNAME = .Item("PAPERNAME")
             _DESCRIPTION = .Item("DESCRIPTION")
-            _code = .Item("CODE")
+            _code = .Item("SERIAL_CODE")
             _REMARKS = .Item("REMARKS")
             _STATUS = .Item("STATUS")
         End With
@@ -147,6 +156,7 @@
 
             .Item("PAPERNAME") = _PAPERNAME
             .Item("DESCRIPTION") = _DESCRIPTION
+            .Item("SERIAL_CODE") = _code
             .Item("REMARKS") = _REMARKS
             .Item("STATUS") = _STATUS
         End With
@@ -174,12 +184,14 @@
             With ds.Tables(0).Rows(0)
                 .Item("PAPERNAME") = _PAPERNAME
                 .Item("DESCRIPTION") = _DESCRIPTION
-                .Item("REMARKS") = REMARKS
+                .Item("SERIAL_CODE") = _code
+                .Item("HEIGHT") = _Heightx
+                .Item("REMARKS") = _REMARKS
+
+                MessageBox.Show("UPDATED SUCESSFULLY ")
 
             End With
             connection.SaveEntry(ds, False)
-
-            MessageBox.Show("updated Successfully ")
 
         Else
 
@@ -230,7 +242,9 @@
         With dsnewrow
             .Item("PAPERNAME") = _PAPERNAME
             .Item("DESCRIPTION") = _DESCRIPTION
+            .Item("SERIAL_CODE") = _code
             .Item("REMARKS") = _REMARKS
+            .Item("HEIGHT") = _Heightx
             .Item("STATUS") = _STATUS
         End With
         ds.Tables(0).Rows.Add(dsnewrow)

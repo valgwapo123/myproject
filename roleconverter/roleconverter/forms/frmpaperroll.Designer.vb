@@ -29,15 +29,17 @@ Partial Class frmpaperroll
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.SuspendLayout()
         '
         'lvList
         '
-        Me.lvList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader4, Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader5})
+        Me.lvList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader4, Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader3, Me.ColumnHeader5})
         Me.lvList.FullRowSelect = True
         Me.lvList.Location = New System.Drawing.Point(26, 78)
         Me.lvList.Name = "lvList"
-        Me.lvList.Size = New System.Drawing.Size(590, 227)
+        Me.lvList.Size = New System.Drawing.Size(716, 233)
         Me.lvList.TabIndex = 6
         Me.lvList.UseCompatibleStateImageBehavior = False
         Me.lvList.View = System.Windows.Forms.View.Details
@@ -65,21 +67,32 @@ Partial Class frmpaperroll
         'ColumnHeader5
         '
         Me.ColumnHeader5.Text = "Status"
+        Me.ColumnHeader5.Width = 0
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(576, 400)
+        Me.Button1.Location = New System.Drawing.Point(680, 400)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 7
         Me.Button1.Text = "Select"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'ColumnHeader6
+        '
+        Me.ColumnHeader6.Text = "Serial Code"
+        Me.ColumnHeader6.Width = 100
+        '
+        'ColumnHeader7
+        '
+        Me.ColumnHeader7.Text = "Height"
+        Me.ColumnHeader7.Width = 100
+        '
         'frmpaperroll
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(653, 425)
+        Me.ClientSize = New System.Drawing.Size(767, 425)
         Me.ControlBox = False
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lvList)
@@ -96,4 +109,6 @@ Partial Class frmpaperroll
     Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader5 As System.Windows.Forms.ColumnHeader
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents ColumnHeader6 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader7 As System.Windows.Forms.ColumnHeader
 End Class
