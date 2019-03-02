@@ -27,13 +27,14 @@ Partial Class frmpapercut
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader19 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader20 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader22 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -42,6 +43,7 @@ Partial Class frmpapercut
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btncancel = New System.Windows.Forms.Button()
         Me.txtcutremarks = New System.Windows.Forms.RichTextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnadd = New System.Windows.Forms.Button()
@@ -54,8 +56,10 @@ Partial Class frmpapercut
         Me.btnsave = New System.Windows.Forms.Button()
         Me.btnremove = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtserial = New System.Windows.Forms.TextBox()
+        Me.txtheight = New System.Windows.Forms.TextBox()
         Me.txtremaks = New System.Windows.Forms.RichTextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -68,12 +72,8 @@ Partial Class frmpapercut
         Me.ColumnHeader17 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader21 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader18 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.ColumnHeader22 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.btncancel = New System.Windows.Forms.Button()
         Me.ColumnHeader23 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.txtheight = New System.Windows.Forms.TextBox()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -123,6 +123,16 @@ Partial Class frmpapercut
         Me.ColumnHeader13.Text = "Description"
         Me.ColumnHeader13.Width = 100
         '
+        'ColumnHeader12
+        '
+        Me.ColumnHeader12.Text = "Unitid"
+        Me.ColumnHeader12.Width = 0
+        '
+        'ColumnHeader9
+        '
+        Me.ColumnHeader9.Text = "Unit"
+        Me.ColumnHeader9.Width = 100
+        '
         'ColumnHeader10
         '
         Me.ColumnHeader10.Text = "Remarks"
@@ -148,15 +158,10 @@ Partial Class frmpapercut
         Me.ColumnHeader20.Text = "Serial Code"
         Me.ColumnHeader20.Width = 120
         '
-        'ColumnHeader12
+        'ColumnHeader22
         '
-        Me.ColumnHeader12.Text = "Unitid"
-        Me.ColumnHeader12.Width = 0
-        '
-        'ColumnHeader9
-        '
-        Me.ColumnHeader9.Text = "Unit"
-        Me.ColumnHeader9.Width = 100
+        Me.ColumnHeader22.Text = "Remarks"
+        Me.ColumnHeader22.Width = 200
         '
         'ListView1
         '
@@ -217,6 +222,16 @@ Partial Class frmpapercut
         Me.GroupBox2.TabIndex = 44
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "PAPER CUT"
+        '
+        'btncancel
+        '
+        Me.btncancel.Enabled = False
+        Me.btncancel.Location = New System.Drawing.Point(276, 236)
+        Me.btncancel.Name = "btncancel"
+        Me.btncancel.Size = New System.Drawing.Size(75, 23)
+        Me.btncancel.TabIndex = 39
+        Me.btncancel.Text = "Cancel"
+        Me.btncancel.UseVisualStyleBackColor = True
         '
         'txtcutremarks
         '
@@ -333,6 +348,15 @@ Partial Class frmpapercut
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "PAPER  DETAILS"
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(54, 162)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(41, 13)
+        Me.Label9.TabIndex = 38
+        Me.Label9.Text = "Height:"
+        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -350,6 +374,15 @@ Partial Class frmpapercut
         Me.txtserial.Name = "txtserial"
         Me.txtserial.Size = New System.Drawing.Size(167, 20)
         Me.txtserial.TabIndex = 35
+        '
+        'txtheight
+        '
+        Me.txtheight.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtheight.Enabled = False
+        Me.txtheight.Location = New System.Drawing.Point(104, 161)
+        Me.txtheight.Name = "txtheight"
+        Me.txtheight.Size = New System.Drawing.Size(167, 20)
+        Me.txtheight.TabIndex = 37
         '
         'txtremaks
         '
@@ -441,6 +474,11 @@ Partial Class frmpapercut
         Me.ColumnHeader18.Text = "Remarks"
         Me.ColumnHeader18.Width = 99
         '
+        'ColumnHeader23
+        '
+        Me.ColumnHeader23.Text = "Height "
+        Me.ColumnHeader23.Width = 100
+        '
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
@@ -449,44 +487,6 @@ Partial Class frmpapercut
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(1186, 758)
         Me.TabControl1.TabIndex = 0
-        '
-        'ColumnHeader22
-        '
-        Me.ColumnHeader22.Text = "Remarks"
-        Me.ColumnHeader22.Width = 200
-        '
-        'btncancel
-        '
-        Me.btncancel.Enabled = False
-        Me.btncancel.Location = New System.Drawing.Point(276, 236)
-        Me.btncancel.Name = "btncancel"
-        Me.btncancel.Size = New System.Drawing.Size(75, 23)
-        Me.btncancel.TabIndex = 39
-        Me.btncancel.Text = "Cancel"
-        Me.btncancel.UseVisualStyleBackColor = True
-        '
-        'ColumnHeader23
-        '
-        Me.ColumnHeader23.Text = "Height "
-        Me.ColumnHeader23.Width = 100
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(54, 162)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(41, 13)
-        Me.Label9.TabIndex = 38
-        Me.Label9.Text = "Height:"
-        '
-        'txtheight
-        '
-        Me.txtheight.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtheight.Enabled = False
-        Me.txtheight.Location = New System.Drawing.Point(104, 161)
-        Me.txtheight.Name = "txtheight"
-        Me.txtheight.Size = New System.Drawing.Size(167, 20)
-        Me.txtheight.TabIndex = 37
         '
         'frmpapercut
         '

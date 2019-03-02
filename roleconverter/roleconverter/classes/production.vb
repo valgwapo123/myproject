@@ -1,7 +1,8 @@
 ﻿Public Class production
     Private MainTable As String = "TBL_PRODUCTIONPAPER"
-    Dim mysql As String = String.Empty
 
+   Dim mysql As String = String.Empty
+    Private isLoaded As Boolean = False
 #Region "Properties"
 
 
@@ -51,6 +52,16 @@
             _statusx = value
         End Set
     End Property
+
+    Private _PRODUCTION_ID As String
+    Public Property PRODUCTION_ID() As String
+        Get
+            Return _PRODUCTION_ID
+        End Get
+        Set(ByVal value As String)
+            _PRODUCTION_ID = value
+        End Set
+    End Property
 #End Region
 
 
@@ -73,6 +84,41 @@
         connection.SaveEntry(ds)
         MessageBox.Show("Successfully SAVE")
   
+
+    End Sub
+
+
+    Public Sub LoadCat(ByVal id As Integer)
+        If isLoaded Then Exit Sub
+
+        Dim mySql As String = String.Format("SELECT * FROM {0} WHERE PROD_ID = '{1}'", MainTable, id)
+        Dim ds As DataSet = LoadSQL(mySql, MainTable)
+
+        If ds.Tables(MainTable).Rows.Count <= 0 Then
+            MsgBox("Unable to load category", MsgBoxStyle.Critical)
+            Exit Sub
+        End If
+
+
+
+        isLoaded = True
+    End Sub
+    Public Sub UPDATEQUANTITY()
+        mysql = "select * from " & MainTable & " where PROD_ID =" & _PRODUCTION_ID
+        Dim ds As DataSet = LoadSQL(mysql, MainTable)
+
+        If ds.Tables(0).Rows.Count > 0 Then
+            With ds.Tables(0).Rows(0)
+                .Item("QUANTITY") = _quantity_pro
+               
+            End With
+            connection.SaveEntry(ds, False)
+
+
+            MessageBox.Show("SUCESSFULLY UPDATED")
+
+
+        End If
 
     End Sub
 #End Region

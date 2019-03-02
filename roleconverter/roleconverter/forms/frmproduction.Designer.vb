@@ -72,14 +72,21 @@ Partial Class frmproduction
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txtpapercut = New System.Windows.Forms.TextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.ListView2 = New System.Windows.Forms.ListView()
+        Me.LVLPROD = New System.Windows.Forms.ListView()
+        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader19 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader20 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader22 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader23 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader24 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader25 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader26 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader20 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader27 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader28 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader29 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader31 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader30 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader32 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -157,7 +164,7 @@ Partial Class frmproduction
         '
         'lvlproduction
         '
-        Me.lvlproduction.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader6, Me.ColumnHeader9, Me.ColumnHeader10, Me.ColumnHeader11, Me.ColumnHeader12, Me.ColumnHeader13})
+        Me.lvlproduction.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader32, Me.ColumnHeader6, Me.ColumnHeader9, Me.ColumnHeader10, Me.ColumnHeader11, Me.ColumnHeader12, Me.ColumnHeader13})
         Me.lvlproduction.FullRowSelect = True
         Me.lvlproduction.Location = New System.Drawing.Point(510, 422)
         Me.lvlproduction.Name = "lvlproduction"
@@ -415,9 +422,10 @@ Partial Class frmproduction
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(40, 272)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(49, 13)
+        Me.Label2.Size = New System.Drawing.Size(58, 13)
         Me.Label2.TabIndex = 40
         Me.Label2.Text = "Quantity:"
         '
@@ -495,7 +503,7 @@ Partial Class frmproduction
         '
         'TabPage2
         '
-        Me.TabPage2.Controls.Add(Me.ListView2)
+        Me.TabPage2.Controls.Add(Me.LVLPROD)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
@@ -504,26 +512,26 @@ Partial Class frmproduction
         Me.TabPage2.Text = "VIEW"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
-        'ListView2
+        'LVLPROD
         '
-        Me.ListView2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader19, Me.ColumnHeader20, Me.ColumnHeader22, Me.ColumnHeader23, Me.ColumnHeader24, Me.ColumnHeader25, Me.ColumnHeader26})
-        Me.ListView2.FullRowSelect = True
-        Me.ListView2.Location = New System.Drawing.Point(113, 77)
-        Me.ListView2.Name = "ListView2"
-        Me.ListView2.Size = New System.Drawing.Size(792, 201)
-        Me.ListView2.TabIndex = 58
-        Me.ListView2.UseCompatibleStateImageBehavior = False
-        Me.ListView2.View = System.Windows.Forms.View.Details
+        Me.LVLPROD.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader7, Me.ColumnHeader19, Me.ColumnHeader22, Me.ColumnHeader23, Me.ColumnHeader24, Me.ColumnHeader25, Me.ColumnHeader26, Me.ColumnHeader20, Me.ColumnHeader27, Me.ColumnHeader28, Me.ColumnHeader29, Me.ColumnHeader31, Me.ColumnHeader30})
+        Me.LVLPROD.FullRowSelect = True
+        Me.LVLPROD.Location = New System.Drawing.Point(113, 77)
+        Me.LVLPROD.Name = "LVLPROD"
+        Me.LVLPROD.Size = New System.Drawing.Size(1199, 201)
+        Me.LVLPROD.TabIndex = 58
+        Me.LVLPROD.UseCompatibleStateImageBehavior = False
+        Me.LVLPROD.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader7
+        '
+        Me.ColumnHeader7.Text = "PRODUCTION ID"
+        Me.ColumnHeader7.Width = 100
         '
         'ColumnHeader19
         '
         Me.ColumnHeader19.Text = "Cut ID"
-        Me.ColumnHeader19.Width = 100
-        '
-        'ColumnHeader20
-        '
-        Me.ColumnHeader20.Text = "paperroleid"
-        Me.ColumnHeader20.Width = 1
+        Me.ColumnHeader19.Width = 0
         '
         'ColumnHeader22
         '
@@ -548,6 +556,42 @@ Partial Class frmproduction
         'ColumnHeader26
         '
         Me.ColumnHeader26.Text = "Quantity"
+        Me.ColumnHeader26.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'ColumnHeader20
+        '
+        Me.ColumnHeader20.Text = "PAPER ID"
+        Me.ColumnHeader20.Width = 100
+        '
+        'ColumnHeader27
+        '
+        Me.ColumnHeader27.Text = "PAPER NAME"
+        Me.ColumnHeader27.Width = 100
+        '
+        'ColumnHeader28
+        '
+        Me.ColumnHeader28.Text = "DESCRIPTION"
+        Me.ColumnHeader28.Width = 100
+        '
+        'ColumnHeader29
+        '
+        Me.ColumnHeader29.Text = "SERIAL CODE"
+        Me.ColumnHeader29.Width = 100
+        '
+        'ColumnHeader31
+        '
+        Me.ColumnHeader31.Text = "HEIGHT"
+        Me.ColumnHeader31.Width = 100
+        '
+        'ColumnHeader30
+        '
+        Me.ColumnHeader30.Text = "REMARKS"
+        Me.ColumnHeader30.Width = 100
+        '
+        'ColumnHeader32
+        '
+        Me.ColumnHeader32.Text = "PRODUCTION ID"
+        Me.ColumnHeader32.Width = 100
         '
         'frmproduction
         '
@@ -618,11 +662,18 @@ Partial Class frmproduction
     Friend WithEvents txtpapercut As System.Windows.Forms.TextBox
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents ColumnHeader19 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ColumnHeader20 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader22 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader23 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader24 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader25 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader26 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ListView2 As System.Windows.Forms.ListView
+    Friend WithEvents LVLPROD As System.Windows.Forms.ListView
+    Friend WithEvents ColumnHeader7 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader20 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader27 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader28 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader29 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader30 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader31 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader32 As System.Windows.Forms.ColumnHeader
 End Class

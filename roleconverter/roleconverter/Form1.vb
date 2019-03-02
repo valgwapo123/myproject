@@ -22,5 +22,7 @@
 
     Private Sub ProductionToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ProductionToolStripMenuItem.Click
 
+        frmproduction.Show()
+        frmproduction.Focus()
     End Sub
 End Class

@@ -300,4 +300,8 @@
         txtdescription.Clear() : txtpapercut.Clear() : combounit.Text = "" : txtcutremarks.Clear() : txtcutremarks.Clear() : txtpdescription.Clear() : txtserial.Clear() : txtremaks.Clear() : txtpapername.Clear() : idx = 0
 
     End Sub
+
+    Private Sub ListView1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView1.SelectedIndexChanged
+
+    End Sub
 End Class
