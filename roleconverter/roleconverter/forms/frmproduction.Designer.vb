@@ -32,6 +32,7 @@ Partial Class frmproduction
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.lvlproduction = New System.Windows.Forms.ListView()
+        Me.ColumnHeader32 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -72,6 +73,7 @@ Partial Class frmproduction
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txtpapercut = New System.Windows.Forms.TextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.btneditview = New System.Windows.Forms.Button()
         Me.LVLPROD = New System.Windows.Forms.ListView()
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader19 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -86,7 +88,6 @@ Partial Class frmproduction
         Me.ColumnHeader29 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader31 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader30 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader32 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -172,6 +173,11 @@ Partial Class frmproduction
         Me.lvlproduction.TabIndex = 57
         Me.lvlproduction.UseCompatibleStateImageBehavior = False
         Me.lvlproduction.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader32
+        '
+        Me.ColumnHeader32.Text = "PRODUCTION ID"
+        Me.ColumnHeader32.Width = 100
         '
         'ColumnHeader6
         '
@@ -503,6 +509,7 @@ Partial Class frmproduction
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.btneditview)
         Me.TabPage2.Controls.Add(Me.LVLPROD)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
@@ -512,9 +519,18 @@ Partial Class frmproduction
         Me.TabPage2.Text = "VIEW"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'btneditview
+        '
+        Me.btneditview.Location = New System.Drawing.Point(32, 77)
+        Me.btneditview.Name = "btneditview"
+        Me.btneditview.Size = New System.Drawing.Size(75, 23)
+        Me.btneditview.TabIndex = 59
+        Me.btneditview.Text = "Edit"
+        Me.btneditview.UseVisualStyleBackColor = True
+        '
         'LVLPROD
         '
-        Me.LVLPROD.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader7, Me.ColumnHeader19, Me.ColumnHeader22, Me.ColumnHeader23, Me.ColumnHeader24, Me.ColumnHeader25, Me.ColumnHeader26, Me.ColumnHeader20, Me.ColumnHeader27, Me.ColumnHeader28, Me.ColumnHeader29, Me.ColumnHeader31, Me.ColumnHeader30})
+        Me.LVLPROD.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader7, Me.ColumnHeader26, Me.ColumnHeader19, Me.ColumnHeader22, Me.ColumnHeader23, Me.ColumnHeader24, Me.ColumnHeader25, Me.ColumnHeader20, Me.ColumnHeader27, Me.ColumnHeader28, Me.ColumnHeader29, Me.ColumnHeader31, Me.ColumnHeader30})
         Me.LVLPROD.FullRowSelect = True
         Me.LVLPROD.Location = New System.Drawing.Point(113, 77)
         Me.LVLPROD.Name = "LVLPROD"
@@ -587,11 +603,6 @@ Partial Class frmproduction
         '
         Me.ColumnHeader30.Text = "REMARKS"
         Me.ColumnHeader30.Width = 100
-        '
-        'ColumnHeader32
-        '
-        Me.ColumnHeader32.Text = "PRODUCTION ID"
-        Me.ColumnHeader32.Width = 100
         '
         'frmproduction
         '
@@ -676,4 +687,5 @@ Partial Class frmproduction
     Friend WithEvents ColumnHeader30 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader31 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader32 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents btneditview As System.Windows.Forms.Button
 End Class

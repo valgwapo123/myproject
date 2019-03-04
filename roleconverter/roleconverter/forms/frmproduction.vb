@@ -23,9 +23,7 @@
         tmpcat.LoadCat(paperproduction)
 
         LOADUPDATELIST(paperproduction)
-
-        '   Me.TabControl1.SelectedTab = Me.TabPage1
-
+     
 
 
 
@@ -44,7 +42,7 @@
     & "  from TBL_PRODUCTIONPAPER" _
     & "  INNER JOIN TBL_PAPERCUT ON TBL_PRODUCTIONPAPER.CUT_ID = TBL_PAPERCUT.CUT_ID" _
     & "  INNER JOIN TBL_UNIT ON TBL_UNIT.UNIT_ID = TBL_PAPERCUT.UNIT_ID" _
-    & "  WHERE TBL_PRODUCTIONPAPER.PROD_ID='" & ppidx & "'"
+   & "  WHERE TBL_PRODUCTIONPAPER.PROD_ID='" & ppidx & "'"
 
         Dim ds As DataSet = LoadSQL(mySql)
 
@@ -67,6 +65,7 @@
             txtremaks.Text = dr("REMARKS").ToString
             txtquantity.Text = dr("QUANTITY").ToString
             txtcutremarks.Text = dr("REMARKS").ToString
+        ' call list view a
 
             btncancel.Enabled = True
         Next
@@ -75,7 +74,7 @@
         Dim mySql As String = "select * from TBL_PAPERROLL  WHERE STATUS='1' order by PAPERROLE_ID"
         Dim ds As DataSet = LoadSQL(mySql)
 
-        '   lvList.Items.Clear()
+        '   lvList.Items.Clear() 
         For Each dr As DataRow In ds.Tables(0).Rows
             Dim lv As ListViewItem = lvList.Items.Add(dr("PAPERROLE_ID"))
             lv.SubItems.Add(dr("PAPERNAME"))
@@ -87,6 +86,8 @@
 
         Next
     End Sub
+
+ 
     'LOAD PRODUCTION ALREADY TRANSACT
     Public Sub ALREADYPROCESS()
         Dim mySql As String = "SELECT DISTINCT TBL_PRODUCTIONPAPER.PROD_ID AS PROD_ID" _
@@ -112,12 +113,12 @@
         LVLPROD.Items.Clear()
         For Each dr As DataRow In ds.Tables(0).Rows
             Dim lv As ListViewItem = LVLPROD.Items.Add(dr("PROD_ID"))
+            lv.SubItems.Add(dr("QUANTITY") & "PCS")
             lv.SubItems.Add(dr("CUT_ID"))
             lv.SubItems.Add(dr("CUT_NAME"))
             lv.SubItems.Add(dr("DESCRIPTION"))
             lv.SubItems.Add(dr("UNITNAME"))
               lv.SubItems.Add(dr("REMARKSPAPERCUT"))
-            lv.SubItems.Add(dr("QUANTITY") & "PCS")
             lv.SubItems.Add(dr("PAPERROLLID"))
             lv.SubItems.Add(dr("PAPERNAME"))
             lv.SubItems.Add(dr("PAPERDESCRIPT"))
@@ -125,7 +126,7 @@
             lv.SubItems.Add(dr("HEIGHT") & "(meters)")
             lv.SubItems.Add(dr("PAPERREMARKS"))
         Next
-     
+
     End Sub
     Public Sub LoadPRODUCTION()
         Dim mySql As String = "select * from TBL_PAPERROLL  WHERE STATUS='1' order by PAPERROLE_ID"
@@ -321,5 +322,15 @@
 
     Private Sub lvList_SelectedIndexChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lvList.SelectedIndexChanged
 
+    End Sub
+
+    Private Sub btneditview_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btneditview.Click
+        If LVLPROD.SelectedItems.Count = 0 Then Exit Sub
+        Me.TabControl1.SelectedTab = Me.TabPage1
+        btnadd.Text = "&Update"
+        productionlistviewupdateclick()
+        ListView1.Items.Clear()
+        btnremove.Enabled = False
+        txtpapername.Clear() : txtserial.Clear() : txtpdescription.Clear() : txtheight.Clear() : txtremaks.Clear()
     End Sub
 End Class

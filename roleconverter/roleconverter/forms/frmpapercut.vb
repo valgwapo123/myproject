@@ -16,7 +16,18 @@
                 .PAPER_ID = lv.SubItems(1).Text
                 .CUT_NAME = lv.SubItems(2).Text
                 .DESCRIPTION = lv.SubItems(3).Text
+                '======search unit ID
+                Dim mySql As String = "select UNIT_ID from TBL_UNIT  WHERE STATUS='1' AND UNIT_NAME='" & lv.SubItems(4).Text & "'  "
 
+                Dim ds As DataSet = LoadSQL(mySql)
+
+                '   lvList.Items.Clear()
+                For Each dr As DataRow In ds.Tables(0).Rows
+
+                    .unit_id = (dr("UNIT_ID")).ToString
+
+
+                Next
            
                 .statusx = "1"
                 .SAVEPRODUCTION()
@@ -51,7 +62,7 @@
 
 
     Public Sub LOADSAVED()
-        Dim mySql As String = "select  *  from TBL_UNIT INNER JOIN TBL_PAPERCUT ON TBL_UNIT.UNIT_ID= TBL_PAPERCUT.UNIT_ID INNER JOIN TBL_PAPERROLL ON  TBL_PAPERCUT.PAPERROLE_ID=TBL_PAPERROLL.PAPERROLE_ID ORDER BY TBL_UNIT.UNIT_ID DESC "
+        Dim mySql As String = "select  *  from TBL_UNIT INNER JOIN TBL_PAPERCUT ON TBL_UNIT.UNIT_ID= TBL_PAPERCUT.UNIT_ID INNER JOIN TBL_PAPERROLL ON  TBL_PAPERCUT.PAPERROLE_ID=TBL_PAPERROLL.PAPERROLE_ID ORDER BY TBL_PAPERCUT.PAPERROLE_ID DESC "
         Dim ds As DataSet = LoadSQL(mySql)
 
         lvlsaved.Items.Clear()

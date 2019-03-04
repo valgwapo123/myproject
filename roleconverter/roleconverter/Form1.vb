@@ -25,4 +25,9 @@
         frmproduction.Show()
         frmproduction.Focus()
     End Sub
+
+    Private Sub PAPERWASTEDToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PAPERWASTEDToolStripMenuItem.Click
+        FRMWASTE.Show()
+        FRMWASTE.Focus()
+    End Sub
 End Class

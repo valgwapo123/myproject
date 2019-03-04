@@ -75,10 +75,17 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\add_PAPERROLL.vb" />
     <Compile Include="classes\papercut.vb" />
     <Compile Include="classes\paperroll.vb" />
     <Compile Include="classes\paperunit.vb" />
     <Compile Include="classes\production.vb" />
+    <Compile Include="forms\frmaddpaperroll.Designer.vb">
+      <DependentUpon>frmaddpaperroll.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmaddpaperroll.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms\frmpapercut.Designer.vb">
       <DependentUpon>frmpapercut.vb</DependentUpon>
     </Compile>
@@ -142,6 +149,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmaddpaperroll.resx">
+      <DependentUpon>frmaddpaperroll.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmpapercut.resx">
       <DependentUpon>frmpapercut.vb</DependentUpon>
