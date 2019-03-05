@@ -28,6 +28,7 @@ Partial Class FRMWASTE
         Me.ColumnHeader17 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader21 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -39,14 +40,13 @@ Partial Class FRMWASTE
         Me.txtpdescription = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtpapername = New System.Windows.Forms.TextBox()
-        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'lvList
         '
-        Me.lvList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader15, Me.ColumnHeader16, Me.ColumnHeader17, Me.ColumnHeader21, Me.ColumnHeader4, Me.ColumnHeader1, Me.ColumnHeader3})
+        Me.lvList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader15, Me.ColumnHeader16, Me.ColumnHeader17, Me.ColumnHeader21, Me.ColumnHeader4, Me.ColumnHeader1, Me.ColumnHeader2})
         Me.lvList.FullRowSelect = True
         Me.lvList.Location = New System.Drawing.Point(357, 40)
         Me.lvList.Name = "lvList"
@@ -79,6 +79,12 @@ Partial Class FRMWASTE
         '
         Me.ColumnHeader4.Text = "Remarks"
         Me.ColumnHeader4.Width = 100
+        '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Text = "Number Roll"
+        Me.ColumnHeader1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ColumnHeader1.Width = 100
         '
         'GroupBox1
         '
@@ -187,15 +193,11 @@ Partial Class FRMWASTE
         Me.txtpapername.Size = New System.Drawing.Size(167, 20)
         Me.txtpapername.TabIndex = 0
         '
-        'ColumnHeader1
+        'ColumnHeader2
         '
-        Me.ColumnHeader1.Text = "Total CUT"
-        Me.ColumnHeader1.Width = 100
-        '
-        'ColumnHeader3
-        '
-        Me.ColumnHeader3.Text = "REMAINING"
-        Me.ColumnHeader3.Width = 150
+        Me.ColumnHeader2.Text = "ROLL USED"
+        Me.ColumnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ColumnHeader2.Width = 100
         '
         'FRMWASTE
         '
@@ -229,5 +231,5 @@ Partial Class FRMWASTE
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents txtpapername As System.Windows.Forms.TextBox
     Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
 End Class

@@ -12,6 +12,7 @@
     Private Sub frmproduction_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         LoadClass()
         ALREADYPROCESS()
+
     End Sub
     Private Sub productionlistviewupdateclick()
 
@@ -53,11 +54,11 @@
             lv.SubItems.Add(dr("CUTNAME"))
             lv.SubItems.Add(dr("CUTDESCRIPTION"))
             lv.SubItems.Add(dr("UNIT_NAME"))
-            lv.SubItems.Add(dr("REMARKS"))
+            lv.SubItems.Add(dr("REMARKS").ToString)
             lv.SubItems.Add(dr("QUANTITY"))
 
-
-            prodid = dr("PRODUCTIONID")
+            'prodid
+            lvlproduction.Tag = dr("PRODUCTIONID")
             cutidx = dr("CUTID").ToString
             txtpapercut.Text = dr("CUTNAME").ToString
             txtdescription.Text = dr("CUTDESCRIPTION").ToString
@@ -65,16 +66,18 @@
             txtremaks.Text = dr("REMARKS").ToString
             txtquantity.Text = dr("QUANTITY").ToString
             txtcutremarks.Text = dr("REMARKS").ToString
-        ' call list view a
+            '   call list view a
 
             btncancel.Enabled = True
         Next
     End Sub
     Public Sub LoadClass()
+        Dim ROLLnum, productionROLL, cutROLL, totalreMAINING As String
         Dim mySql As String = "select * from TBL_PAPERROLL  WHERE STATUS='1' order by PAPERROLE_ID"
         Dim ds As DataSet = LoadSQL(mySql)
 
-        '   lvList.Items.Clear() 
+
+        lvList.Items.Clear()
         For Each dr As DataRow In ds.Tables(0).Rows
             Dim lv As ListViewItem = lvList.Items.Add(dr("PAPERROLE_ID"))
             lv.SubItems.Add(dr("PAPERNAME"))
@@ -84,6 +87,48 @@
             lv.SubItems.Add(dr("Remarks"))
 
 
+            'select total quantity
+
+            Dim mySqlx As String = "SELECT SUM(TBL_ADD_PAPERROLL.QUANTITY) AS TQUANTITY FROM TBL_PAPERROLL INNER JOIN TBL_ADD_PAPERROLL ON TBL_PAPERROLL.PAPERROLE_ID=TBL_ADD_PAPERROLL.PAPERROLL_ID  WHERE TBL_PAPERROLL.STATUS='1' AND TBL_PAPERROLL.PAPERROLE_ID='" & dr("PAPERROLE_ID") & "'"
+
+            Dim dsx As DataSet = LoadSQL(mySqlx)
+
+            '   lvList.Items.Clear() 
+            For Each dr1 As DataRow In dsx.Tables(0).Rows
+                ROLLnum = dr1("TQUANTITY").ToString
+
+                '  
+
+
+
+                'search total production
+                Dim mySqll As String = "SELECT SUM(TBL_PRODUCTIONPAPER.QUANTITY) AS TOTALUSED FROM TBL_PRODUCTIONPAPER INNER JOIN TBL_PAPERCUT ON TBL_PRODUCTIONPAPER.CUT_ID =TBL_PAPERCUT.CUT_ID INNER JOIN TBL_PAPERROLL ON TBL_PAPERCUT.PAPERROLE_ID=TBL_PAPERROLL.PAPERROLE_ID  WHERE TBL_PAPERROLL.PAPERROLE_ID='" & dr("PAPERROLE_ID") & "'"
+
+                Dim dsx1 As DataSet = LoadSQL(mySqll)
+
+                '   lvList.Items.Clear()
+                For Each dsxs As DataRow In dsx1.Tables(0).Rows
+
+
+
+
+
+                 
+
+                    productionROLL = (Val(ROLLnum) * Val(dr("Height")) / Val(dr("Height")))
+
+                    cutROLL = ((Val(ROLLnum) * Val(dr("Height")) - Val(dsxs("TOTALUSED").ToString) * 32))
+
+                    '        lv.SubItems.Add(productionROLL)
+
+                    lv.SubItems.Add(Val(cutROLL) / Val(dr("Height")))
+
+                Next
+            Next
+
+
+           
+        
         Next
     End Sub
 
@@ -118,7 +163,7 @@
             lv.SubItems.Add(dr("CUT_NAME"))
             lv.SubItems.Add(dr("DESCRIPTION"))
             lv.SubItems.Add(dr("UNITNAME"))
-              lv.SubItems.Add(dr("REMARKSPAPERCUT"))
+            lv.SubItems.Add(dr("REMARKSPAPERCUT").ToString)
             lv.SubItems.Add(dr("PAPERROLLID"))
             lv.SubItems.Add(dr("PAPERNAME"))
             lv.SubItems.Add(dr("PAPERDESCRIPT"))
@@ -153,7 +198,7 @@
         txtserial.Text = lvList.SelectedItems(0).SubItems(3).Text
         txtremaks.Text = lvList.SelectedItems(0).SubItems(4).Text
         txtheight.Text = lvList.SelectedItems(0).SubItems(5).Text
-
+        txtavailable.Text = lvList.SelectedItems(0).SubItems(6).Text
 
 
         Dim mySql As String = "SELECT  *  from TBL_UNIT INNER JOIN TBL_PAPERCUT ON TBL_UNIT.UNIT_ID= TBL_PAPERCUT.UNIT_ID INNER JOIN TBL_PAPERROLL ON  TBL_PAPERCUT.PAPERROLE_ID=TBL_PAPERROLL.PAPERROLE_ID WHERE TBL_PAPERCUT.PAPERROLE_ID='" & lvList.SelectedItems(0).SubItems(0).Text & "'"
@@ -181,9 +226,17 @@
     End Sub
  
     Private Sub ListView1_doubleclick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView1.DoubleClick
+        If txtavailable.Text = "" Or Val(txtavailable.Text) = 0 Then
+
+            MessageBox.Show("NO ROLL AVAILABLE", "DANGER",
+                         MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+
+        End If
+
         If ListView1.SelectedItems.Count = 0 Then Exit Sub
         cutidx = ListView1.SelectedItems(0).SubItems(0).Text
-       txtpapercut.Text = ListView1.SelectedItems(0).SubItems(2).Text
+        txtpapercut.Text = ListView1.SelectedItems(0).SubItems(2).Text
         txtdescription.Text = ListView1.SelectedItems(0).SubItems(3).Text
         txtunit.Text = ListView1.SelectedItems(0).SubItems(4).Text
         txtcutremarks.Text = ListView1.SelectedItems(0).SubItems(5).Text
@@ -196,7 +249,15 @@
     End Sub
 
     Private Sub btnadd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnadd.Click
+        
         If btnadd.Text = "Add" Or btnadd.Text = "&Add" Then
+            If (Val(txtquantity.Text) = 0) Then
+                MessageBox.Show("ROLL NOT ENOUGH", "DANGER",
+                           MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End If
+
+
 
             Dim lv As ListViewItem = lvlproduction.Items.Add(0)
             lv.SubItems.Add(cutidx)
@@ -211,7 +272,7 @@
         End If
         If btnadd.Text = "&Update" Then
             lvlproduction.Items.Clear()
-            Dim lv As ListViewItem = lvlproduction.Items.Add(prodid)
+            Dim lv As ListViewItem = lvlproduction.Items.Add(lvlproduction.Tag)
             lv.SubItems.Add(cutidx)
             lv.SubItems.Add(txtpapercut.Text)
             lv.SubItems.Add(txtdescription.Text)
@@ -250,7 +311,7 @@
             Next
         End If
       
-
+        LoadClass()
     End Sub
     Private Sub savelist()
         Dim msg As DialogResult = MsgBox("Do you want to save this?", MsgBoxStyle.YesNo, "Question")
@@ -285,9 +346,6 @@
 
     End Sub
 
-    Private Sub ListView1_SelectedIndexChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView1.SelectedIndexChanged
-
-    End Sub
 
     Private Sub TabPage1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TabPage1.Click
 

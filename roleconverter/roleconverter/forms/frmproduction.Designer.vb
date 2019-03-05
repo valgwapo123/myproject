@@ -48,7 +48,10 @@ Partial Class frmproduction
         Me.ColumnHeader21 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader18 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader33 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.txtavailable = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtserial = New System.Windows.Forms.TextBox()
@@ -76,18 +79,19 @@ Partial Class frmproduction
         Me.btneditview = New System.Windows.Forms.Button()
         Me.LVLPROD = New System.Windows.Forms.ListView()
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader26 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader19 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader22 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader23 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader24 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader25 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader26 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader20 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader27 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader28 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader29 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader31 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader30 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader34 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -128,7 +132,7 @@ Partial Class frmproduction
         Me.ListView1.FullRowSelect = True
         Me.ListView1.Location = New System.Drawing.Point(510, 218)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(768, 172)
+        Me.ListView1.Size = New System.Drawing.Size(831, 172)
         Me.ListView1.TabIndex = 51
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -169,7 +173,7 @@ Partial Class frmproduction
         Me.lvlproduction.FullRowSelect = True
         Me.lvlproduction.Location = New System.Drawing.Point(510, 422)
         Me.lvlproduction.Name = "lvlproduction"
-        Me.lvlproduction.Size = New System.Drawing.Size(768, 172)
+        Me.lvlproduction.Size = New System.Drawing.Size(831, 172)
         Me.lvlproduction.TabIndex = 57
         Me.lvlproduction.UseCompatibleStateImageBehavior = False
         Me.lvlproduction.View = System.Windows.Forms.View.Details
@@ -228,11 +232,11 @@ Partial Class frmproduction
         '
         'lvList
         '
-        Me.lvList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader15, Me.ColumnHeader16, Me.ColumnHeader17, Me.ColumnHeader21, Me.ColumnHeader18, Me.ColumnHeader4})
+        Me.lvList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader15, Me.ColumnHeader16, Me.ColumnHeader17, Me.ColumnHeader21, Me.ColumnHeader18, Me.ColumnHeader4, Me.ColumnHeader33, Me.ColumnHeader34})
         Me.lvList.FullRowSelect = True
         Me.lvList.Location = New System.Drawing.Point(516, 6)
         Me.lvList.Name = "lvList"
-        Me.lvList.Size = New System.Drawing.Size(768, 189)
+        Me.lvList.Size = New System.Drawing.Size(825, 189)
         Me.lvList.TabIndex = 52
         Me.lvList.UseCompatibleStateImageBehavior = False
         Me.lvList.View = System.Windows.Forms.View.Details
@@ -267,8 +271,15 @@ Partial Class frmproduction
         Me.ColumnHeader4.Text = "Remarks"
         Me.ColumnHeader4.Width = 100
         '
+        'ColumnHeader33
+        '
+        Me.ColumnHeader33.Text = "ROLL AVAILABLE"
+        Me.ColumnHeader33.Width = 100
+        '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label11)
+        Me.GroupBox1.Controls.Add(Me.txtavailable)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.txtserial)
@@ -281,10 +292,28 @@ Partial Class frmproduction
         Me.GroupBox1.Controls.Add(Me.txtpapername)
         Me.GroupBox1.Location = New System.Drawing.Point(82, 46)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(422, 278)
+        Me.GroupBox1.Size = New System.Drawing.Size(422, 294)
         Me.GroupBox1.TabIndex = 54
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "PAPER  DETAILS"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(19, 265)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(74, 13)
+        Me.Label11.TabIndex = 40
+        Me.Label11.Text = "Roll Available:"
+        '
+        'txtavailable
+        '
+        Me.txtavailable.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtavailable.Enabled = False
+        Me.txtavailable.Location = New System.Drawing.Point(104, 265)
+        Me.txtavailable.Name = "txtavailable"
+        Me.txtavailable.Size = New System.Drawing.Size(167, 20)
+        Me.txtavailable.TabIndex = 39
         '
         'Label1
         '
@@ -327,7 +356,7 @@ Partial Class frmproduction
         Me.txtremaks.Enabled = False
         Me.txtremaks.Location = New System.Drawing.Point(104, 206)
         Me.txtremaks.Name = "txtremaks"
-        Me.txtremaks.Size = New System.Drawing.Size(167, 54)
+        Me.txtremaks.Size = New System.Drawing.Size(167, 39)
         Me.txtremaks.TabIndex = 2
         Me.txtremaks.Text = ""
         '
@@ -544,6 +573,11 @@ Partial Class frmproduction
         Me.ColumnHeader7.Text = "PRODUCTION ID"
         Me.ColumnHeader7.Width = 100
         '
+        'ColumnHeader26
+        '
+        Me.ColumnHeader26.Text = "Quantity"
+        Me.ColumnHeader26.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'ColumnHeader19
         '
         Me.ColumnHeader19.Text = "Cut ID"
@@ -568,11 +602,6 @@ Partial Class frmproduction
         '
         Me.ColumnHeader25.Text = "Remarks"
         Me.ColumnHeader25.Width = 100
-        '
-        'ColumnHeader26
-        '
-        Me.ColumnHeader26.Text = "Quantity"
-        Me.ColumnHeader26.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'ColumnHeader20
         '
@@ -604,11 +633,15 @@ Partial Class frmproduction
         Me.ColumnHeader30.Text = "REMARKS"
         Me.ColumnHeader30.Width = 100
         '
+        'ColumnHeader34
+        '
+        Me.ColumnHeader34.Text = "XX"
+        '
         'frmproduction
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1370, 750)
+        Me.ClientSize = New System.Drawing.Size(1362, 742)
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "frmproduction"
         Me.Text = "frmproduction"
@@ -688,4 +721,8 @@ Partial Class frmproduction
     Friend WithEvents ColumnHeader31 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader32 As System.Windows.Forms.ColumnHeader
     Friend WithEvents btneditview As System.Windows.Forms.Button
+    Friend WithEvents ColumnHeader33 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents txtavailable As System.Windows.Forms.TextBox
+    Friend WithEvents ColumnHeader34 As System.Windows.Forms.ColumnHeader
 End Class

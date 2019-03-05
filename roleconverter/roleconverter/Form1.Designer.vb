@@ -28,10 +28,11 @@ Partial Class Form1
         Me.PAPERCUTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UnitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.AudtiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PAPERWASTEDToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.STOCKINToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -75,6 +76,19 @@ Partial Class Form1
         Me.ProductionToolStripMenuItem.Size = New System.Drawing.Size(78, 20)
         Me.ProductionToolStripMenuItem.Text = "Production"
         '
+        'AudtiToolStripMenuItem
+        '
+        Me.AudtiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PAPERWASTEDToolStripMenuItem, Me.STOCKINToolStripMenuItem})
+        Me.AudtiToolStripMenuItem.Name = "AudtiToolStripMenuItem"
+        Me.AudtiToolStripMenuItem.Size = New System.Drawing.Size(69, 20)
+        Me.AudtiToolStripMenuItem.Text = "Inventory"
+        '
+        'PAPERWASTEDToolStripMenuItem
+        '
+        Me.PAPERWASTEDToolStripMenuItem.Name = "PAPERWASTEDToolStripMenuItem"
+        Me.PAPERWASTEDToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
+        Me.PAPERWASTEDToolStripMenuItem.Text = "PAPER WASTED"
+        '
         'ReportViewer1
         '
         Me.ReportViewer1.Location = New System.Drawing.Point(196, 130)
@@ -89,18 +103,11 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(462, 311)
         Me.Panel1.TabIndex = 2
         '
-        'AudtiToolStripMenuItem
+        'STOCKINToolStripMenuItem
         '
-        Me.AudtiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PAPERWASTEDToolStripMenuItem})
-        Me.AudtiToolStripMenuItem.Name = "AudtiToolStripMenuItem"
-        Me.AudtiToolStripMenuItem.Size = New System.Drawing.Size(69, 20)
-        Me.AudtiToolStripMenuItem.Text = "Inventory"
-        '
-        'PAPERWASTEDToolStripMenuItem
-        '
-        Me.PAPERWASTEDToolStripMenuItem.Name = "PAPERWASTEDToolStripMenuItem"
-        Me.PAPERWASTEDToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
-        Me.PAPERWASTEDToolStripMenuItem.Text = "PAPER WASTED"
+        Me.STOCKINToolStripMenuItem.Name = "STOCKINToolStripMenuItem"
+        Me.STOCKINToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
+        Me.STOCKINToolStripMenuItem.Text = "STOCK IN"
         '
         'Form1
         '
@@ -131,5 +138,6 @@ Partial Class Form1
     Friend WithEvents ProductionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AudtiToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PAPERWASTEDToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents STOCKINToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

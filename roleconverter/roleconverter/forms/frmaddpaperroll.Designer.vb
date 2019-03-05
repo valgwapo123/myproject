@@ -253,7 +253,7 @@ Partial Class frmaddpaperroll
         Me.lvlprocess.FullRowSelect = True
         Me.lvlprocess.Location = New System.Drawing.Point(293, 255)
         Me.lvlprocess.Name = "lvlprocess"
-        Me.lvlprocess.Size = New System.Drawing.Size(808, 169)
+        Me.lvlprocess.Size = New System.Drawing.Size(895, 169)
         Me.lvlprocess.TabIndex = 44
         Me.lvlprocess.UseCompatibleStateImageBehavior = False
         Me.lvlprocess.View = System.Windows.Forms.View.Details

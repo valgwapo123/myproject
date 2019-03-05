@@ -30,4 +30,10 @@
         FRMWASTE.Show()
         FRMWASTE.Focus()
     End Sub
+
+    Private Sub STOCKINToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles STOCKINToolStripMenuItem.Click
+
+        frmaddpaperroll.Show()
+        frmaddpaperroll.Focus()
+    End Sub
 End Class
