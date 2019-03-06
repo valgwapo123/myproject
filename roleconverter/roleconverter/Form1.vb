@@ -36,4 +36,9 @@
         frmaddpaperroll.Show()
         frmaddpaperroll.Focus()
     End Sub
+
+    Private Sub PACKAGEToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PACKAGEToolStripMenuItem.Click
+        frmphotoset.Show()
+        frmphotoset.Focus()
+    End Sub
 End Class

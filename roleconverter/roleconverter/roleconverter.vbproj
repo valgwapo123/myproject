@@ -98,6 +98,12 @@
     <Compile Include="forms\frmpaperroll.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="forms\frmphotoset.Designer.vb">
+      <DependentUpon>frmphotoset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmphotoset.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms\frmproduction.Designer.vb">
       <DependentUpon>frmproduction.vb</DependentUpon>
     </Compile>
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmpaperroll.resx">
       <DependentUpon>frmpaperroll.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmphotoset.resx">
+      <DependentUpon>frmphotoset.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\frmproduction.resx">
       <DependentUpon>frmproduction.vb</DependentUpon>
