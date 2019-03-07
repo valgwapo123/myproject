@@ -457,7 +457,7 @@ Partial Class frmpapercut
         'ColumnHeader16
         '
         Me.ColumnHeader16.Text = "Paper Name"
-        Me.ColumnHeader16.Width = 100
+        Me.ColumnHeader16.Width = 200
         '
         'ColumnHeader17
         '

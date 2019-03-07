@@ -29,6 +29,7 @@ Partial Class FRMWASTE
         Me.ColumnHeader21 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -40,7 +41,7 @@ Partial Class FRMWASTE
         Me.txtpdescription = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtpapername = New System.Windows.Forms.TextBox()
-        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ListView1 = New System.Windows.Forms.ListView()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -85,6 +86,12 @@ Partial Class FRMWASTE
         Me.ColumnHeader1.Text = "Number Roll"
         Me.ColumnHeader1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.ColumnHeader1.Width = 100
+        '
+        'ColumnHeader2
+        '
+        Me.ColumnHeader2.Text = "ROLL USED"
+        Me.ColumnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ColumnHeader2.Width = 100
         '
         'GroupBox1
         '
@@ -193,17 +200,20 @@ Partial Class FRMWASTE
         Me.txtpapername.Size = New System.Drawing.Size(167, 20)
         Me.txtpapername.TabIndex = 0
         '
-        'ColumnHeader2
+        'ListView1
         '
-        Me.ColumnHeader2.Text = "ROLL USED"
-        Me.ColumnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.ColumnHeader2.Width = 100
+        Me.ListView1.Location = New System.Drawing.Point(453, 261)
+        Me.ListView1.Name = "ListView1"
+        Me.ListView1.Size = New System.Drawing.Size(121, 97)
+        Me.ListView1.TabIndex = 57
+        Me.ListView1.UseCompatibleStateImageBehavior = False
         '
         'FRMWASTE
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1370, 750)
+        Me.Controls.Add(Me.ListView1)
         Me.Controls.Add(Me.lvList)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "FRMWASTE"
@@ -232,4 +242,5 @@ Partial Class FRMWASTE
     Friend WithEvents txtpapername As System.Windows.Forms.TextBox
     Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ListView1 As System.Windows.Forms.ListView
 End Class

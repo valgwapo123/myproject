@@ -27,13 +27,15 @@ Partial Class Form1
         Me.PAPERINFOToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PAPERCUTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UnitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PACKAGEToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AudtiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PAPERWASTEDToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.STOCKINToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PACKAGEToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PACKAGEToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SETPACKAGEToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -70,6 +72,13 @@ Partial Class Form1
         Me.UnitToolStripMenuItem.Name = "UnitToolStripMenuItem"
         Me.UnitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.UnitToolStripMenuItem.Text = "Unit"
+        '
+        'PACKAGEToolStripMenuItem
+        '
+        Me.PACKAGEToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PACKAGEToolStripMenuItem1, Me.SETPACKAGEToolStripMenuItem})
+        Me.PACKAGEToolStripMenuItem.Name = "PACKAGEToolStripMenuItem"
+        Me.PACKAGEToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PACKAGEToolStripMenuItem.Text = "PACKAGE"
         '
         'ProductionToolStripMenuItem
         '
@@ -110,11 +119,17 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(462, 311)
         Me.Panel1.TabIndex = 2
         '
-        'PACKAGEToolStripMenuItem
+        'PACKAGEToolStripMenuItem1
         '
-        Me.PACKAGEToolStripMenuItem.Name = "PACKAGEToolStripMenuItem"
-        Me.PACKAGEToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.PACKAGEToolStripMenuItem.Text = "PACKAGE"
+        Me.PACKAGEToolStripMenuItem1.Name = "PACKAGEToolStripMenuItem1"
+        Me.PACKAGEToolStripMenuItem1.Size = New System.Drawing.Size(173, 22)
+        Me.PACKAGEToolStripMenuItem1.Text = "PACKAGE DETAILS"
+        '
+        'SETPACKAGEToolStripMenuItem
+        '
+        Me.SETPACKAGEToolStripMenuItem.Name = "SETPACKAGEToolStripMenuItem"
+        Me.SETPACKAGEToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
+        Me.SETPACKAGEToolStripMenuItem.Text = "SET PACKAGE"
         '
         'Form1
         '
@@ -147,5 +162,7 @@ Partial Class Form1
     Friend WithEvents PAPERWASTEDToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents STOCKINToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PACKAGEToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents PACKAGEToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SETPACKAGEToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

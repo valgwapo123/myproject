@@ -24,6 +24,9 @@ Partial Class frmproduction
     Private Sub InitializeComponent()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabControl2 = New System.Windows.Forms.TabControl()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -92,24 +95,19 @@ Partial Class frmproduction
         Me.ColumnHeader29 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader31 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader30 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.TabControl2 = New System.Windows.Forms.TabControl()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.ListView2 = New System.Windows.Forms.ListView()
         Me.ColumnHeader35 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader36 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader37 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader38 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader39 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader40 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
         Me.TabControl2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.TabPage4.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -138,6 +136,38 @@ Partial Class frmproduction
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "PRODUCTION"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'TabControl2
+        '
+        Me.TabControl2.Controls.Add(Me.TabPage3)
+        Me.TabControl2.Controls.Add(Me.TabPage4)
+        Me.TabControl2.Location = New System.Drawing.Point(515, 221)
+        Me.TabControl2.Name = "TabControl2"
+        Me.TabControl2.SelectedIndex = 0
+        Me.TabControl2.Size = New System.Drawing.Size(831, 185)
+        Me.TabControl2.TabIndex = 58
+        '
+        'TabPage3
+        '
+        Me.TabPage3.Controls.Add(Me.ListView2)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(823, 159)
+        Me.TabPage3.TabIndex = 0
+        Me.TabPage3.Text = "PER SET"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'TabPage4
+        '
+        Me.TabPage4.Controls.Add(Me.ListView1)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(823, 159)
+        Me.TabPage4.TabIndex = 1
+        Me.TabPage4.Text = "PER PCS"
+        Me.TabPage4.UseVisualStyleBackColor = True
         '
         'ListView1
         '
@@ -650,78 +680,36 @@ Partial Class frmproduction
         Me.ColumnHeader30.Text = "REMARKS"
         Me.ColumnHeader30.Width = 100
         '
-        'TabControl2
-        '
-        Me.TabControl2.Controls.Add(Me.TabPage3)
-        Me.TabControl2.Controls.Add(Me.TabPage4)
-        Me.TabControl2.Location = New System.Drawing.Point(515, 221)
-        Me.TabControl2.Name = "TabControl2"
-        Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(831, 185)
-        Me.TabControl2.TabIndex = 58
-        '
-        'TabPage3
-        '
-        Me.TabPage3.Controls.Add(Me.ListView2)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(823, 159)
-        Me.TabPage3.TabIndex = 0
-        Me.TabPage3.Text = "PER SET"
-        Me.TabPage3.UseVisualStyleBackColor = True
-        '
-        'TabPage4
-        '
-        Me.TabPage4.Controls.Add(Me.ListView1)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(823, 159)
-        Me.TabPage4.TabIndex = 1
-        Me.TabPage4.Text = "PER PCS"
-        Me.TabPage4.UseVisualStyleBackColor = True
-        '
         'ListView2
         '
-        Me.ListView2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader35, Me.ColumnHeader36, Me.ColumnHeader37, Me.ColumnHeader38, Me.ColumnHeader39, Me.ColumnHeader40})
+        Me.ListView2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader35, Me.ColumnHeader36, Me.ColumnHeader37, Me.ColumnHeader38})
         Me.ListView2.FullRowSelect = True
-        Me.ListView2.Location = New System.Drawing.Point(10, 9)
+        Me.ListView2.Location = New System.Drawing.Point(3, 12)
         Me.ListView2.Name = "ListView2"
-        Me.ListView2.Size = New System.Drawing.Size(803, 141)
-        Me.ListView2.TabIndex = 52
+        Me.ListView2.Size = New System.Drawing.Size(814, 129)
+        Me.ListView2.TabIndex = 58
         Me.ListView2.UseCompatibleStateImageBehavior = False
         Me.ListView2.View = System.Windows.Forms.View.Details
         '
         'ColumnHeader35
         '
-        Me.ColumnHeader35.Text = "Cut ID"
+        Me.ColumnHeader35.Text = "PACKAGE ID"
         Me.ColumnHeader35.Width = 100
         '
         'ColumnHeader36
         '
-        Me.ColumnHeader36.Text = "paperroleid"
-        Me.ColumnHeader36.Width = 1
+        Me.ColumnHeader36.Text = "PACKAGE NAME"
+        Me.ColumnHeader36.Width = 200
         '
         'ColumnHeader37
         '
-        Me.ColumnHeader37.Text = "Paper Cut"
-        Me.ColumnHeader37.Width = 100
+        Me.ColumnHeader37.Text = "Description"
+        Me.ColumnHeader37.Width = 200
         '
         'ColumnHeader38
         '
-        Me.ColumnHeader38.Text = "Description"
-        Me.ColumnHeader38.Width = 100
-        '
-        'ColumnHeader39
-        '
-        Me.ColumnHeader39.Text = "Unit"
-        Me.ColumnHeader39.Width = 100
-        '
-        'ColumnHeader40
-        '
-        Me.ColumnHeader40.Text = "Remarks"
-        Me.ColumnHeader40.Width = 100
+        Me.ColumnHeader38.Text = "Remarks"
+        Me.ColumnHeader38.Width = 99
         '
         'frmproduction
         '
@@ -733,14 +721,14 @@ Partial Class frmproduction
         Me.Text = "frmproduction"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
+        Me.TabControl2.ResumeLayout(False)
+        Me.TabPage3.ResumeLayout(False)
+        Me.TabPage4.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
-        Me.TabControl2.ResumeLayout(False)
-        Me.TabPage3.ResumeLayout(False)
-        Me.TabPage4.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -816,12 +804,10 @@ Partial Class frmproduction
     Friend WithEvents ColumnHeader34 As System.Windows.Forms.ColumnHeader
     Friend WithEvents TabControl2 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
     Friend WithEvents ListView2 As System.Windows.Forms.ListView
     Friend WithEvents ColumnHeader35 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader36 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader37 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader38 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ColumnHeader39 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ColumnHeader40 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
 End Class

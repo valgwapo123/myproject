@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\add_PAPERROLL.vb" />
+    <Compile Include="classes\PACKAGESET.vb" />
     <Compile Include="classes\papercut.vb" />
     <Compile Include="classes\paperroll.vb" />
     <Compile Include="classes\paperunit.vb" />
@@ -136,6 +137,12 @@
     <Compile Include="forms\frmpaperrole.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="forms\frm_SET_PAPER_PACKAGE.Designer.vb">
+      <DependentUpon>frm_SET_PAPER_PACKAGE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_SET_PAPER_PACKAGE.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -179,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\FRMWASTE.resx">
       <DependentUpon>FRMWASTE.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_SET_PAPER_PACKAGE.resx">
+      <DependentUpon>frm_SET_PAPER_PACKAGE.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

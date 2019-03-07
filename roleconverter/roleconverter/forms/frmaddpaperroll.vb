@@ -76,10 +76,6 @@
 
     End Sub
 
-    Private Sub savelist()
-     
-
-    End Sub
 
     Private Sub lvList_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lvList.SelectedIndexChanged
 

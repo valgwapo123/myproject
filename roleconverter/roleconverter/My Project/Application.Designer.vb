@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.roleconverter.frmphotoset
+            Me.MainForm = Global.roleconverter.frm_SET_PAPER_PACKAGE
         End Sub
     End Class
 End Namespace

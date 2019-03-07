@@ -38,6 +38,10 @@
     End Sub
 
     Private Sub PACKAGEToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PACKAGEToolStripMenuItem.Click
+        
+    End Sub
+
+    Private Sub PACKAGEToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PACKAGEToolStripMenuItem1.Click
         frmphotoset.Show()
         frmphotoset.Focus()
     End Sub
