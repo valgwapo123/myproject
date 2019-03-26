@@ -45,4 +45,9 @@
         frmphotoset.Show()
         frmphotoset.Focus()
     End Sub
+
+    Private Sub SETPACKAGEToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SETPACKAGEToolStripMenuItem.Click
+        frm_SET_PAPER_PACKAGE.Show()
+        frm_SET_PAPER_PACKAGE.Focus()
+    End Sub
 End Class

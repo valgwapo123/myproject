@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.roleconverter.frm_SET_PAPER_PACKAGE
+            Me.MainForm = Global.roleconverter.frmPACKAGEtoPCS
         End Sub
     End Class
 End Namespace

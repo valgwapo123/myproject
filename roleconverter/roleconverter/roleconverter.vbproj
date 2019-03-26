@@ -76,6 +76,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\add_PAPERROLL.vb" />
+    <Compile Include="forms\frmPACKAGEtoPCS.Designer.vb">
+      <DependentUpon>frmPACKAGEtoPCS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frmPACKAGEtoPCS.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="classes\PACKAGESET.vb" />
     <Compile Include="classes\papercut.vb" />
     <Compile Include="classes\paperroll.vb" />
@@ -160,6 +166,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="forms\frmPACKAGEtoPCS.resx">
+      <DependentUpon>frmPACKAGEtoPCS.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>

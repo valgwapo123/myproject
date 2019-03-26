@@ -49,7 +49,7 @@ Partial Class FRMWASTE
         '
         Me.lvList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader15, Me.ColumnHeader16, Me.ColumnHeader17, Me.ColumnHeader21, Me.ColumnHeader4, Me.ColumnHeader1, Me.ColumnHeader2})
         Me.lvList.FullRowSelect = True
-        Me.lvList.Location = New System.Drawing.Point(357, 40)
+        Me.lvList.Location = New System.Drawing.Point(357, 30)
         Me.lvList.Name = "lvList"
         Me.lvList.Size = New System.Drawing.Size(1001, 189)
         Me.lvList.TabIndex = 55
