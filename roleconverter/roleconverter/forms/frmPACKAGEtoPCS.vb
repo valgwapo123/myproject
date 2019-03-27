@@ -3,24 +3,24 @@ Public Class frmPACKAGEtoPCS
     Dim fileName As String
     Dim tmpSavePath As String
     Private Sub frmPACKAGEtoPCS_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        loadsetpackage()
+        ' loadsetpackage()
     End Sub
 
-    Public Sub loadsetpackage()
-        Dim mySql As String = "select * from TBL_SET_PACKAGE  WHERE STATUS='1' order by SET_ID"
-        Dim ds As DataSet = LoadSQL(mySql)
+    'Public Sub loadsetpackage()
+    '    Dim mySql As String = "select * from TBL_SET_PACKAGE  WHERE STATUS='1' order by SET_ID"
+    '    Dim ds As DataSet = LoadSQL(mySql)
 
-        '   lvList.Items.Clear()
-        For Each dr As DataRow In ds.Tables(0).Rows
-            Dim lv As ListViewItem = lvList.Items.Add(dr("SET_ID"))
-            lv.SubItems.Add(dr("PACKAGE_NAME"))
-            lv.SubItems.Add(dr("DESCRIPTION"))
-            lv.SubItems.Add(dr("REMARKS"))
+    '    '   lvList.Items.Clear()
+    '    For Each dr As DataRow In ds.Tables(0).Rows
+    '        Dim lv As ListViewItem = lvList.Items.Add(dr("SET_ID"))
+    '        lv.SubItems.Add(dr("PACKAGE_NAME"))
+    '        lv.SubItems.Add(dr("DESCRIPTION"))
+    '        lv.SubItems.Add(dr("REMARKS"))
 
 
-        Next
+    '    Next
 
-    End Sub
+    'End Sub
 
     Private Sub btnBrowse_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBrowse.Click
         ofdJeltmp.ShowDialog()
@@ -54,6 +54,8 @@ Public Class frmPACKAGEtoPCS
 
         Dim MaxColumn As Integer = oSheet.Cells(1, oSheet.Columns.Count).End(Excel.XlDirection.xlToLeft).column
         Dim MaxEntries As Integer = oSheet.Cells(oSheet.Rows.Count, 1).End(Excel.XlDirection.xlUp).row
+        pbstatus.Maximum = MaxEntries - 1
+
 
         Dim checkHeaders(MaxColumn) As String
         For cnt As Integer = 0 To MaxColumn - 1
@@ -65,16 +67,59 @@ Public Class frmPACKAGEtoPCS
          
             Dim bnj As New conversion
             With bnj
+a:
 
-                .packageID = oSheet.Cells(cnt, 1).value
-                .PAPERCUT_ID = oSheet.Cells(cnt, 6).value
-                .PACKAGE_PCS = oSheet.Cells(cnt, 10).value
+                If oSheet.Cells(cnt, 1).value = Nothing Then
 
-                .ADDCONVERTION()
+                Else
+                    .packageID = oSheet.Cells(cnt, 1).value
 
-               
+
+                    .packageNAME = oSheet.Cells(cnt, 2).value
+                    .packagedescription = oSheet.Cells(cnt, 3).value
+                    .packageremarks = oSheet.Cells(cnt, 4).value
+                    .package_status = oSheet.Cells(cnt, 5).value
+
+                    .ADDCONVERTION()
+                End If
+
+            
+
+
+
+
+
+
+                .cut_id = oSheet.Cells(cnt, 6).value
+                .CUT_NAME = oSheet.Cells(cnt, 7).value
+                .CUT_DESCIPTION = oSheet.Cells(cnt, 8).value
+                .CUT_REMARKS = oSheet.Cells(cnt, 9).value
+                .cut_width = oSheet.Cells(cnt, 10).value
+                .cut_height = oSheet.Cells(cnt, 11).value
+                .CUT_STATUS = oSheet.Cells(cnt, 13).value
+
+
+
+
+                .savepepercut()
+
+
+
+
+                cnt = cnt + 1
+                bnj = Nothing
+                If oSheet.Cells(cnt, 6).value = Nothing And oSheet.Cells(cnt, 1).value = Nothing Then
+                Else
+                    GoTo c
+                End If
+                If oSheet.Cells(cnt, 6).value = Nothing Then
+                    GoTo a
+                End If
             End With
-
+c:
+            pbstatus.Value = pbstatus.Value + 1
+            Application.DoEvents()
+            lblstatuss.Text = String.Format("{0}%", ((pbstatus.Value / pbstatus.Maximum) * 100).ToString("F2"))
         Next
 
 
@@ -83,8 +128,7 @@ Public Class frmPACKAGEtoPCS
         oXL.Quit()
         oXL = Nothing
 
-        MsgBox("Completed")
-         
+
 
 
 
